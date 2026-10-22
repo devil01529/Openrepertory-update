@@ -6,6 +6,11 @@ on:
         description: Prepared release tag (for example v1.19)
         required: true
         type: string
+      publish:
+        description: Publish after upload (otherwise keep as a draft)
+        required: true
+        default: false
+        type: boolean
 permissions:
   contents: write
 concurrency:
@@ -38,4 +43,10 @@ jobs:
             gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "Open Repertory ${RELEASE_TAG#v}" --notes-file "$folder/RELEASE_NOTES.md"
           fi
           gh release upload "$RELEASE_TAG" "$folder/"*.apk "$folder/update.json" "$folder/RELEASE_NOTES.md" "$folder/SHA256SUMS" --clobber
-          gh release edit "$RELEASE_TAG" --draft=false --latest
+      - name: Publish the completed release
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: gh release edit "$RELEASE_TAG" --draft=false --latest
