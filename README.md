@@ -24,7 +24,7 @@ Keep the existing Android keystore and the separate metadata signing key in secu
 
 ## Verification
 
-[1.21 test report](TEST_REPORT_1.21.md): 281 automated checks passed, including actual Android WebView shortcut/menu tests. An in-place v1.20 → v1.21 installation preserved six encrypted records and the phone identity. Clinical data/text assets and scoring are retained. Physical-phone acceptance and a fresh live Apper sign-in were not part of this UI change.
+[1.21 test report](TEST_REPORT_1.21.md): 281 automated checks passed, including actual Android WebView shortcut/menu tests. An in-place v1.20 → v1.21 installation preserved six encrypted records and the phone identity. Clinical data/text assets and scoring are retained. Physical-phone acceptance and a fresh live Apper sign-in were not part of this UI change. The live Latest endpoint and anonymous APK download were verified after publication; signature and APK hash match the tested release.
 
 [Download the 1.21 source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.21/Open-Repertory-1.21-UI-Source.zip); apply it over the retained full application source. It is not a standalone clinical database/source distribution.
 

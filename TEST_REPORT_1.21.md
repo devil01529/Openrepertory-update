@@ -29,3 +29,7 @@ The landscape scroll test initially sampled the last result before lazy loading 
 APK SHA-256: `e35ab589d7753acc56e6d30b7ee0dcfed2bdfa0f661d9b0d3c5e13bec891d4c0`.
 
 The existing signed update channel is used for publication. Android will still require the user to confirm installation. Use the release's unchanged APK filename and signed update.json; do not uninstall or clear storage.
+
+## Public release verification
+
+The v1.21 publication workflow completed successfully: [GitHub Actions run](https://github.com/devil01529/Openrepertory-update/actions/runs/39779574356). Anonymous HTTPS access to the app's actual `/releases/latest/download/update.json` endpoint returned versionCode 22 / 1.21-dev. Its signature verified with the existing pinned public key. The public APK downloaded without GitHub authentication and its 23,943,259 bytes matched the tested build's SHA-256. See PUBLIC_RELEASE_VERIFICATION_1.21.json. This is a host-side live channel check, not a second full Android installer test.

@@ -1,0 +1,10 @@
+{
+  "latestManifest": "passed",
+  "metadataSignature": "passed",
+  "versionCode": 22,
+  "versionName": "1.21-dev",
+  "anonymousApkDownload": "passed",
+  "downloadedBytes": 23943259,
+  "sha256": "e35ab589d7753acc56e6d30b7ee0dcfed2bdfa0f661d9b0d3c5e13bec891d4c0",
+  "matchesTestedApk": true
+}
