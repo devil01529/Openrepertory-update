@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.20** introduces a clearer seven-action menu. From 1.19, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.21** adds the floating clipboard Analysis shortcut. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -24,9 +24,17 @@ Keep the existing Android keystore and the separate metadata signing key in secu
 
 ## Verification
 
-[Release test report](TEST_REPORT_1.19.md): 143 automated checks passed, plus an actual in-place upgrade retaining 31 encrypted test records and phone identity. Anonymous public APK/manifest/guide downloads match the tested build. The final supplementary Android live-download check was blocked by the restarted emulator’s DNS/services; modern physical-phone live download and complete update installation remain acceptance checks.
+[1.21 test report](TEST_REPORT_1.21.md): 281 automated checks passed, including actual Android WebView shortcut/menu tests. An in-place v1.20 → v1.21 installation preserved six encrypted records and the phone identity. Clinical data/text assets and scoring are retained. Physical-phone acceptance and a fresh live Apper sign-in were not part of this UI change.
 
-[Download the application source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.19/Open-Repertory-1.19-Update-Source.zip) for the complete native/menu integration changes; apply it over the retained full application source.
+[Download the 1.21 source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.21/Open-Repertory-1.21-UI-Source.zip); apply it over the retained full application source. It is not a standalone clinical database/source distribution.
+
+## New in 1.21
+
+Select a repertory rubric with **+ Add**. The floating **clipboard Analysis** button shows the current case count; tap it to open the existing full Analysis screen. It hides while typing or using a dialog and stays above bottom navigation.
+
+![Floating Analysis shortcut](docs/analysis-shortcut-1.21.png)
+
+[Major clinical UI redesign plan](MAJOR_UI_REDESIGN_PLAN.md) · [Visual concept](docs/clinical-workspace-concept.png). The complete redesign is planned; only the shortcut is implemented in this release.
 
 ## New in 1.20
 

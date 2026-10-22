@@ -1,0 +1,22 @@
+{
+  "version": "1.21-dev",
+  "versionCode": 22,
+  "automatedChecksPassed": 281,
+  "suites": {
+    "menu-web-tests": 81,
+    "browser-snapshot-tests": 3,
+    "analysis-shortcut-package-tests": 12,
+    "browser-reliability": 14,
+    "analysis-shortcut-web-tests": 130,
+    "advanced-browser-tests": 9,
+    "release-tool-tests": 8,
+    "android-menu-and-shortcut-tests": 24
+  },
+  "upgradeFrom": "1.20-dev",
+  "encryptedRecordsRetained": 6,
+  "deviceIdentityRetained": true,
+  "apkSha256": "e35ab589d7753acc56e6d30b7ee0dcfed2bdfa0f661d9b0d3c5e13bec891d4c0",
+  "clinicalDataAssetsUnchanged": 690,
+  "approvalTestMode": "isolated emulator synthetic account receipts; no fresh live Apper sign-in in this change",
+  "majorRedesignStatus": "plan and visual concept only; clipboard shortcut implemented"
+}
