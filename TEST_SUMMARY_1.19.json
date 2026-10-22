@@ -1,0 +1,30 @@
+{
+  "version": "1.19-dev",
+  "passedChecks": 143,
+  "suites": {
+    "android-update-tests": 36,
+    "android-update-ui-tests": 12,
+    "android-apper-tests": 33,
+    "android-startup-tests": 13,
+    "android-owner-management-tests": 14,
+    "update-package-tests": 12,
+    "release-tool-tests": 8,
+    "update-web-tests": 15
+  },
+  "upgrade": "31 encrypted records and identity retained",
+  "publicChannel": {
+    "anonymousManifest": "passed",
+    "pinnedSignature": "passed",
+    "anonymousApkDownload": "passed",
+    "downloadMatchesTestedApk": "passed",
+    "ownerGuideDownload": "passed",
+    "bytes": 23939163,
+    "sha256": "cab589618dbf904e1539104d88ea47eee374ac980d6bfec51f19309218671097",
+    "version": "1.19-dev"
+  },
+  "supplementaryAndroidLiveChannel": {
+    "status": "environment-blocked",
+    "passedChecks": 0,
+    "reason": "After execution environment restart, emulator Wi-Fi/SystemUI/WebView services were unavailable; network-only probe could not resolve github.com. Physical phone live-download acceptance remains pending."
+  }
+}

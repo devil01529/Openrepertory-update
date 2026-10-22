@@ -21,3 +21,9 @@ GitHub's standard free public release hosting is used, subject to its policies a
 The native app pins a public RSA verification key. It validates release signatures, HTTPS destinations, download hash/size, package, version, Android compatibility and the existing APK signing identity before handing the APK to Android. Never replace a published release with different files; issue a corrected release under a higher Android version code.
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
+
+## Verification
+
+[Release test report](TEST_REPORT_1.19.md): 143 automated checks passed, plus an actual in-place upgrade retaining 31 encrypted test records and phone identity. Anonymous public APK/manifest/guide downloads match the tested build. The final supplementary Android live-download check was blocked by the restarted emulator’s DNS/services; modern physical-phone live download and complete update installation remain acceptance checks.
+
+[Download the application source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.19/Open-Repertory-1.19-Update-Source.zip) for the complete native/menu integration changes; apply it over the retained full application source.
