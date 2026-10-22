@@ -1,6 +1,6 @@
 # Open Repertory — major clinical UI redesign
 
-Prepared 22 October 2026. Audience: practising homeopaths using Android phones and tablets. Status: **design and implementation plan**. The floating Analysis shortcut is implemented separately in v1.21; the larger redesign below is not yet implemented.
+Prepared 22 October 2026. Audience: practising homeopaths using Android phones and tablets. Status: **core redesign implemented in v1.22**. The original design brief follows; see CLINICAL_UI_GUIDE_1.22.md and TEST_REPORT_1.22.md for implemented behaviour and verification limits.
 
 [View the proposed screen layouts](https://github.com/devil01529/Openrepertory-update/blob/main/docs/clinical-workspace-concept.png) (synthetic illustrative data; not implemented screens).
 
@@ -135,4 +135,4 @@ Measure these before and after; they are **targets, not results already achieved
 
 Start the major redesign with **Phase 1 prototypes and Phase 2 consultation frame**, then repertory and analysis together. These offer the largest daily benefit. Defer optional presentation privacy mode and new density preferences until the core flow is stable. No new paid service is required for the UI work; the existing update distribution remains in use.
 
-The v1.21 floating Analysis shortcut is the first immediate usability improvement, not completion of this redesign plan.
+The v1.22 release implements the core consultation frame, Today, repertory, analysis, patient/library, reading/privacy and native navigation work. The clipboard is now icon-only. Physical-phone clinician usability and timing targets remain validation work; see the release test report.

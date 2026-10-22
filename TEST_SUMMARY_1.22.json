@@ -1,0 +1,33 @@
+{
+  "version": "1.22-dev",
+  "versionCode": 23,
+  "automatedChecksPassed": 478,
+  "suites": {
+    "menu-web-tests": 81,
+    "browser-snapshot-tests": 3,
+    "clinical-package-tests": 15,
+    "browser-reliability": 14,
+    "analysis-shortcut-web-tests": 130,
+    "clinical-ui-web-tests": 110,
+    "kent-oorep-audit-tests": 18,
+    "advanced-browser-tests": 9,
+    "release-tool-tests": 8,
+    "android-clinical-menu": 30,
+    "android-apper": 33,
+    "android-startup": 13,
+    "android-owner-management": 14
+  },
+  "upgradeFrom": "1.21-dev",
+  "encryptedRecordsRetained": 5,
+  "phoneIdentityRetained": true,
+  "legacyPublicumSourceKeyRetained": true,
+  "kentSourceRowsVerified": 68742,
+  "kentRemedyRecordsVerified": 624010,
+  "apiPages": 688,
+  "kentCrossReferenceOccurrences": 5,
+  "kentAlternateRemedyNames": 103,
+  "legacyAlternateRemedyNames": 229,
+  "printedBookScanVerification": false,
+  "apkSha256": "b52d0d632a0364e048550f5d7503dfab9518f30b4eb35d63428f0c508d4ea771",
+  "authenticationTestMode": "isolated emulator synthetic account receipts; production Apper service unchanged"
+}
