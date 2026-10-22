@@ -28,7 +28,7 @@ jobs:
         env:
           RELEASE_TAG: ${{ inputs.tag }}
         run: python3 scripts/verify_prepared.py "$RELEASE_TAG"
-      - name: Upload the verified files and publish
+      - name: Upload the verified files to the draft
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -42,7 +42,12 @@ jobs:
           else
             gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "Open Repertory ${RELEASE_TAG#v}" --notes-file "$folder/RELEASE_NOTES.md"
           fi
-          gh release upload "$RELEASE_TAG" "$folder/"*.apk "$folder/update.json" "$folder/RELEASE_NOTES.md" "$folder/SHA256SUMS" --clobber
+          assets=("$folder/"*.apk "$folder/update.json" "$folder/RELEASE_NOTES.md" "$folder/SHA256SUMS")
+          shopt -s nullglob
+          for file in "$folder/"*.zip "$folder/"TEST_REPORT_*.md "$folder/UPDATE_OWNER_GUIDE.md"; do
+            if [[ -f "$file" ]]; then assets+=("$file"); fi
+          done
+          gh release upload "$RELEASE_TAG" "${assets[@]}" --clobber
       - name: Publish the completed release
         if: inputs.publish
         env:

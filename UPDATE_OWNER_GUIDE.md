@@ -29,6 +29,19 @@ Users do not need GitHub accounts or GitHub subscriptions. The repository must r
 
 Checks happen when the app is in use; this is not an instant background push to a closed app. Users can decline an optional update. Android requires user confirmation and may impose additional installation checks.
 
+## Optional: publish prepared files with GitHub Actions
+
+A free manual workflow is installed in this public repository. It handles the environment-specific upload credential limitation encountered during implementation. It uses GitHub's short-lived built-in repository token; it does not need your password, a paid server, or either private signing key.
+
+After a developer commits the prepared public files under `prepared/v1.20/` and updates the public release configuration:
+
+1. Open the repository → Actions → Publish verified APK release → Run workflow.
+2. Keep branch `main`, enter the prepared tag (for example `v1.20`), and leave Publish unchecked to upload a verified draft.
+3. Wait for a green successful run. The workflow verifies the metadata signature and APK hash before uploading.
+4. Open Releases, review the draft, then publish it as Latest after acceptance checks. Alternatively, an accepted prepared release can be published directly by checking Publish when running the workflow.
+
+The same workflow can retry an incomplete draft. It refuses to replace an already published release. Prepared files committed to this public repository are publicly visible even while the GitHub Release is a draft; they contain no patient data or private keys. Standard Linux runners for public repositories are used under GitHub's current free service policies.
+
 ## Developer: prepare releases without exposing keys
 
 The authoritative configuration is `release-config.json`. Increase `versionCode` for EVERY release and change `versionName` (for example, `21` and `1.20-dev`). Keep the same package name and Android signing identity. Update the notes, then build, test and prepare:
