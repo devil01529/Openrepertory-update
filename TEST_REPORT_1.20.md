@@ -37,3 +37,11 @@ The test environment initially restarted and an older emulator image had invalid
 The release is delivered through the existing GitHub signed update channel and the verified hosted publication workflow. Version 1.19 users can select App updates → Check for updates → Download update → Install update. Keep the existing installation; never uninstall or clear storage. Android retains its permission/installation confirmation.
 
 Post-publication discovery and installation from the shipped v1.19 client are recorded separately below when complete. Modern physical Samsung/Android installation prompts, real-account login and performance still require phone acceptance. No complete source-scan or medical-content certification is implied by this UI release.
+
+## Post-publication end-to-end update: passed
+
+The shipped v1.19 APK (version code 20) discovered v1.20 (code 21) through the actual public Latest endpoint using its existing native updater. It downloaded and verified the real release APK, then opened Android's installer. The test confirmed Install, and Android replaced v1.19 with v1.20. Encrypted clinical test records and the phone fingerprint were retained. Pulling the installed APK produced the exact tested/released SHA-256 above.
+
+This was a real network download and Android package installation on the isolated emulator, using synthetic approval receipts and synthetic case records. No real owner credentials, backend grants or patient records were accessed. The VM alone trusts the configured session proxy CA; the shipped APK's TLS/security policy is unchanged. Physical phone vendor prompts and real-account login remain device acceptance checks.
+
+Evidence: live-update-e2e.json, android-live-update-offer.txt and android-live-update-retention.txt in the workspace test-results/v1.20 directory. Public publication workflow: https://github.com/devil01529/Openrepertory-update/actions/runs/39774704876 . Anonymous public manifest/APK downloads and their pinned signature/hash also passed after publication.

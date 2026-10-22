@@ -16,5 +16,25 @@
     "android-live-channel-before-release": 3
   },
   "upgradeRetention": "in-place v1.19 \u2192 v1.20 retained encrypted test record and installation fingerprint",
-  "apkSha256": "902c24b66d964b2c7b707cdadbd9983fb6aa83c7d5b4b777b4d14a1a354b79c4"
+  "apkSha256": "902c24b66d964b2c7b707cdadbd9983fb6aa83c7d5b4b777b4d14a1a354b79c4",
+  "liveUpdateEndToEnd": {
+    "sourceVersion": "1.19-dev",
+    "installedVersion": "1.20-dev",
+    "discovery": "passed",
+    "nativeDownloadAndVerification": "passed",
+    "androidInstallation": "passed",
+    "encryptedRecordsAndPhoneIdentity": "passed",
+    "installedApkSha256": "902c24b66d964b2c7b707cdadbd9983fb6aa83c7d5b4b777b4d14a1a354b79c4",
+    "matchesTestedApk": true,
+    "approvalMode": "emulator-only synthetic receipts; no real owner credentials used"
+  },
+  "publicChannel": {
+    "anonymousLatestManifest": "passed",
+    "versionCode": 21,
+    "pinnedSignature": "passed",
+    "anonymousApkDownload": "passed",
+    "matchesTestedApk": "passed",
+    "bytes": 23943259,
+    "sha256": "902c24b66d964b2c7b707cdadbd9983fb6aa83c7d5b4b777b4d14a1a354b79c4"
+  }
 }
