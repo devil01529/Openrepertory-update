@@ -1,0 +1,20 @@
+{
+  "version": "1.20-dev",
+  "versionCode": 21,
+  "passedChecks": 204,
+  "suites": {
+    "menu-web-tests": 81,
+    "menu-package-tests": 12,
+    "release-tool-tests": 8,
+    "browser-advanced-tests": 9,
+    "browser-reliability-tests": 14,
+    "browser-snapshot-tests": 3,
+    "android-menu-tests": 14,
+    "android-apper-tests": 33,
+    "android-startup-tests": 13,
+    "android-owner-management-tests": 14,
+    "android-live-channel-before-release": 3
+  },
+  "upgradeRetention": "in-place v1.19 \u2192 v1.20 retained encrypted test record and installation fingerprint",
+  "apkSha256": "902c24b66d964b2c7b707cdadbd9983fb6aa83c7d5b4b777b4d14a1a354b79c4"
+}

@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. Future updates appear inside the app under **⋮ → App updates**.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.20** introduces a clearer seven-action menu. From 1.19, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -27,3 +27,11 @@ Keep the existing Android keystore and the separate metadata signing key in secu
 [Release test report](TEST_REPORT_1.19.md): 143 automated checks passed, plus an actual in-place upgrade retaining 31 encrypted test records and phone identity. Anonymous public APK/manifest/guide downloads match the tested build. The final supplementary Android live-download check was blocked by the restarted emulator’s DNS/services; modern physical-phone live download and complete update installation remain acceptance checks.
 
 [Download the application source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.19/Open-Repertory-1.19-Update-Source.zip) for the complete native/menu integration changes; apply it over the retained full application source.
+
+## New in 1.20
+
+Seven grouped phone-menu actions replace the long list. Appearance/Online AI are in Settings; primary pages remain in the bottom bar. Account access, Backup and App updates stay directly accessible. No clinical data or features are removed.
+
+![Redesigned menu on a phone](docs/menu-1.20.png)
+
+[1.20 test report](TEST_REPORT_1.20.md): 204 pre-release checks passed, including installed menu/Back/access/startup/owner tests and native live download verification. See the report for test scope and physical-phone acceptance.
