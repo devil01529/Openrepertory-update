@@ -1,0 +1,75 @@
+{
+  "release": "1.25",
+  "versionCode": 26,
+  "suites": [
+    {
+      "suite": "navigation-tree-tests",
+      "label": "Today gestures, chapter filtering, picker and branch controls",
+      "passed": 115
+    },
+    {
+      "suite": "compact-workspace-tests",
+      "label": "Responsive clinical layouts and mixed-source workflows",
+      "passed": 100
+    },
+    {
+      "suite": "source-switch-guard-tests",
+      "label": "Mixed-source identity, persistence and independent removal",
+      "passed": 24
+    },
+    {
+      "suite": "scoring-compatibility-tests",
+      "label": "Score compatibility against published 1.23",
+      "passed": 16
+    },
+    {
+      "suite": "menu-web-tests",
+      "label": "Menu navigation, accessibility and responsive layouts",
+      "passed": 81
+    },
+    {
+      "suite": "browser-reliability",
+      "label": "Storage recovery, failed saves, backups and print workflows",
+      "passed": 14
+    },
+    {
+      "suite": "browser-snapshot-tests",
+      "label": "Snapshot persistence and search state",
+      "passed": 3
+    },
+    {
+      "suite": "kent-oorep-audit-tests",
+      "label": "Retained electronic Kent source comparison",
+      "passed": 18
+    },
+    {
+      "suite": "clinical-package-tests",
+      "label": "Final APK assets, clinical data, identity and updater safeguards",
+      "passed": 17
+    },
+    {
+      "suite": "release-tool-tests",
+      "label": "Release preparation and rejection safeguards",
+      "passed": 8
+    },
+    {
+      "suite": "MenuChecks",
+      "label": "Packaged Android UI, real Today swipe, chapters, clipboard and Back",
+      "passed": 42
+    },
+    {
+      "suite": "StartupChecks",
+      "label": "Android startup, late readiness and foreground transitions",
+      "passed": 16
+    },
+    {
+      "suite": "ApperChecks",
+      "label": "Android approval and denial guards",
+      "passed": 33
+    }
+  ],
+  "totalPassed": 487,
+  "apkSha256": "5a52a3a999a9b8219527be9cec122a82cd7bb6ffa3ce2a9e21ac19caa739dfc2",
+  "apkSize": 26831340,
+  "upgrade": "Published 1.24 to final 1.25; five encrypted records and phone identity unchanged"
+}

@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.24** delivers compact clinical layouts, mixed-repertory cases and a clearer update screen. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.25** fixes Today scrolling and adds a compact, searchable chapter index with clearer rubric branches. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -21,6 +21,16 @@ GitHub's standard free public release hosting is used, subject to its policies a
 The native app pins a public RSA verification key. It validates release signatures, HTTPS destinations, download hash/size, package, version, Android compatibility and the existing APK signing identity before handing the APK to Android. Never replace a published release with different files; issue a corrected release under a higher Android version code.
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
+
+## New in 1.25
+
+Today scrolls by touch and wheel to its final actions. Both book buttons use one short-name picker. Chapters use a compact text index with filtering and keyboard access; choosing the current chapter keeps it open and closes the panel. Rubric arrows show child counts, with **Collapse/Expand branches** and deferred child rendering. Slow-start recovery opens a late-ready workspace automatically. Clinical data, grades, mixed-source cases and Apper approval are retained.
+
+![Compact chapter navigation](docs/clinical-chapters-1.25.png)
+
+[Detailed phased plan](REPERTORY_TREE_IMPROVEMENT_PLAN.md) · [Usage guide](CLINICAL_UI_GUIDE_1.25.md) · [Book picker](docs/clinical-books-1.25.png) · [Rubric branches](docs/clinical-tree-1.25.png) · [Test report](TEST_REPORT_1.25.md): **487 checks passed**. The published 1.24 → final 1.25 installation retains five encrypted records and phone identity. Verification includes actual Android swipe input and a deliberately delayed startup fixture.
+
+[Download v1.25](https://github.com/devil01529/Openrepertory-update/releases/download/v1.25/Open-Repertory-1.25.apk) · [Source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.25/Open-Repertory-1.25-Clinical-UI-Source.zip)
 
 ## New in 1.24
 
