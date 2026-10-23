@@ -60,3 +60,7 @@ No physical-phone usability study, fresh live owner/member credential sign-in, o
 Version 1.22 was withdrawn from the stable Latest channel after final review found that legacy chapter/path UIDs can be shared by different books. The old toggle checked source ownership only when inserting an item; an identical UID in another book could enter the removal branch first.
 
 Version 1.23 checks source ownership before both removal and insertion. Initial and refreshed Added states, including library/differential helpers, are source-aware. Existing saved UIDs and clinical data are not renamed. The new browser regression tests use actual ABRUPT entries in both Publicum → Kent and Kent → Publicum directions, verify byte-identical in-memory case/ranking content after rejected clicks/direct toggles, and verify independent new cases. The Android suite checks the same protection on an upgraded saved Publicum case.
+
+## Published update verification
+
+After GitHub Actions published v1.23, the public Latest endpoint served versionCode 24. Its RSA signature verified against the pinned public key. The downloaded 26,831,340-byte APK matched the tested final SHA-256 exactly. No GitHub account credentials were supplied by the verification client. See [the verification record](PUBLIC_RELEASE_VERIFICATION_1.23.json). The release is public, normal and Latest.
