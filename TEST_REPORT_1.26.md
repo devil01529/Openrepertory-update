@@ -51,3 +51,7 @@ APK bytes: **26835436**. SHA-256: `a65c30a9b181adb84bf9acd80d8a95a40120141995d9a
 Automated verification covers Chromium and an API 28 software emulator. Physical-device speed and vendor-specific behavior can vary.
 
 [Usage guide](CLINICAL_UI_GUIDE_1.26.md) · [Implementation plan](UI_SESSION_PLAN_1.26.md)
+
+## Public release verification
+
+[GitHub release job](https://github.com/devil01529/Openrepertory-update/actions/runs/39916709385) published version 1.26. An anonymous download from the Latest channel verified the metadata signature and downloaded APK against the tested build: versionCode 27, 26,835,436 bytes, SHA-256 `a65c30a9b181adb84bf9acd80d8a95a40120141995d9a1390e8084f307a40962`. See [verification record](PUBLIC_RELEASE_VERIFICATION_1.26.json).

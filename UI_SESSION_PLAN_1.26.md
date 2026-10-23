@@ -10,3 +10,7 @@
 This is a UI/session update. It does not change remedy grades, clinical source content or analysis formulas. Runtime state survives a warm background return; Android process termination still requires cold initialization.
 
 Implementation and automated verification are complete. Public download verification is recorded separately after publication.
+
+## Public release verification
+
+[GitHub release job](https://github.com/devil01529/Openrepertory-update/actions/runs/39916709385) published version 1.26. An anonymous download from the Latest channel verified the metadata signature and downloaded APK against the tested build: versionCode 27, 26,835,436 bytes, SHA-256 `a65c30a9b181adb84bf9acd80d8a95a40120141995d9a1390e8084f307a40962`. See [verification record](PUBLIC_RELEASE_VERIFICATION_1.26.json).

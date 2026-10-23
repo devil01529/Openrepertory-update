@@ -97,3 +97,7 @@ The public v1.23 update metadata signature and APK download were verified after 
 The public v1.24 Latest metadata signature and APK bytes were verified after publication. [Verification record](PUBLIC_RELEASE_VERIFICATION_1.24.json).
 
 The public v1.25 Latest metadata signature and APK bytes were verified after publication. [Verification record](PUBLIC_RELEASE_VERIFICATION_1.25.json).
+
+## Public release verification
+
+[GitHub release job](https://github.com/devil01529/Openrepertory-update/actions/runs/39916709385) published version 1.26. An anonymous download from the Latest channel verified the metadata signature and downloaded APK against the tested build: versionCode 27, 26,835,436 bytes, SHA-256 `a65c30a9b181adb84bf9acd80d8a95a40120141995d9a1390e8084f307a40962`. See [verification record](PUBLIC_RELEASE_VERIFICATION_1.26.json).
