@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-23T16:38:44.912249+00:00",
+  "authenticatedDownload": false,
+  "latestChannelVersionCode": 29,
+  "latestChannelVersionName": "1.28-dev",
+  "metadataSignatureVerified": true,
+  "apkUrl": "https://github.com/devil01529/Openrepertory-update/releases/download/v1.28/Open-Repertory-1.28.apk",
+  "apkSha256": "f24742abd9be0cfe590956b3b59a82bd96787a09d26dc9164b6cc0612cc29e47",
+  "apkSize": 26839609,
+  "matchesTestedApk": true
+}

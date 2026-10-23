@@ -9,3 +9,5 @@ The reading-panel suite covers five viewport sizes, light/dark themes, 140% text
 Limits: this iteration ran Chromium browser tests and APK/package checks, not Android instrumentation or a physical-phone frame-rate benchmark. Emulator startup was unavailable due to stale AVD ownership and software-emulation configuration. Earlier native test results are not counted as new passes. No claim of zero bugs or guaranteed frame rate is made.
 
 APK SHA-256: `f24742abd9be0cfe590956b3b59a82bd96787a09d26dc9164b6cc0612cc29e47`
+
+Public delivery verified: GitHub Actions run 39988420568 succeeded. Anonymous latest-channel metadata has a valid signature and resolves to version code 29 / 1.28-dev. The downloaded APK matches the tested local SHA-256 and size. See PUBLIC_RELEASE_VERIFICATION_1.28.json.
