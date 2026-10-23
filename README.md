@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.23** delivers the clinical UI redesign and adds the audited English Kent source. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.24** delivers compact clinical layouts, mixed-repertory cases and a clearer update screen. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -21,6 +21,16 @@ GitHub's standard free public release hosting is used, subject to its policies a
 The native app pins a public RSA verification key. It validates release signatures, HTTPS destinations, download hash/size, package, version, Android compatibility and the existing APK signing identity before handing the APK to Android. Never replace a published release with different files; issue a corrected release under a higher Android version code.
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
+
+## New in 1.24
+
+Remedy lists start hidden; one button shows or hides them all. Rubrics and remedy lines are closer, chapters open automatically and close on selection, and the book picker shows names only. Analysis defaults to a compact rubric-row/remedy-column matrix; selected rubric weights remain horizontal. Cases can include different repertories while retaining every entry’s source and grades. Update notes open separately from download/install controls.
+
+![Compact analysis on a phone](docs/clinical-analysis-1.24.png)
+
+[Usage guide](CLINICAL_UI_GUIDE_1.24.md) · [Tablet analysis](docs/clinical-analysis-tablet-1.24.png) · [Test report](TEST_REPORT_1.24.md): **384 checks passed**, including source identity, score compatibility, responsive layouts, packaged Android workflows and long-note update controls. The final v1.23 → v1.24 upgrade retained five encrypted records and phone identity. Original clinical datasets are unchanged.
+
+[Download v1.24](https://github.com/devil01529/Openrepertory-update/releases/download/v1.24/Open-Repertory-1.24.apk) · [Source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.24/Open-Repertory-1.24-Clinical-UI-Source.zip)
 
 ## New in 1.23
 

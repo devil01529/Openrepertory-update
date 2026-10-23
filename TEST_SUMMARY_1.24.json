@@ -1,0 +1,28 @@
+{
+  "versionName": "1.24-dev",
+  "versionCode": 25,
+  "totalPassed": 384,
+  "suites": {
+    "browser-reliability": 14,
+    "browser-snapshot-tests": 3,
+    "clinical-package-tests": 17,
+    "compact-workspace-tests": 100,
+    "kent-oorep-audit-tests": 18,
+    "menu-web-tests": 81,
+    "release-tool-tests": 8,
+    "scoring-compatibility-tests": 16,
+    "source-switch-guard-tests": 24,
+    "android-MenuChecks": 34,
+    "android-ApperChecks": 33,
+    "android-StartupChecks": 13,
+    "android-OwnerManagementChecks": 14,
+    "android-UpdatePresentationChecks": 9
+  },
+  "apkSha256": "191149e13daf1349ce6d28ab79b745da121e081cc5ff13d3cfa19b9cee50e1ec",
+  "apkSize": 26831340,
+  "syntheticEmulatorReceipts": true,
+  "physicalPhonePerformanceCertified": false,
+  "upgradeFrom": "1.23-dev",
+  "encryptedRecordsRetained": 5,
+  "phoneIdentityRetained": true
+}

@@ -56,9 +56,9 @@ public final class AppUpdates {
     private volatile boolean disposed,cancelled,working;
     private volatile HttpURLConnection connection;
     private volatile Release release;
-    private AlertDialog dialog;
+    private AlertDialog dialog,notesDialog;
     private TextView text;
-    private Button checkButton,downloadButton,cancelButton;
+    private Button checkButton,downloadButton,cancelButton,notesButton;
     private ProgressBar progress;
     private String status="Check for a newer version. Your records stay on this phone.";
     private int percent=-1;
@@ -149,8 +149,9 @@ public final class AppUpdates {
     private void redraw(){
         if(dialog==null||!dialog.isShowing()||text==null)return;
         String last=prefs.getLong("lastSuccess",0)>0?java.text.DateFormat.getDateTimeInstance().format(new Date(prefs.getLong("lastSuccess",0))):"Never";
-        String available=release==null?"":("\n\nAvailable: "+release.name+" · "+String.format(Locale.US,"%.1f MB",release.size/1048576.0)+"\n\n"+release.notes);
-        text.setText("Installed: "+installedName+"\nLast successful check: "+last+available+"\n\n"+status);
+        String available=release==null?"":("\nAvailable: "+release.name+" · "+String.format(Locale.US,"%.1f MB",release.size/1048576.0));
+        text.setText("Installed: "+installedName+available+"\n\n"+status+"\nLast checked: "+last);
+        if(notesButton!=null)notesButton.setVisibility(release==null?View.GONE:View.VISIBLE);
         progress.setVisibility(working?View.VISIBLE:View.GONE);progress.setIndeterminate(percent<0);if(percent>=0)progress.setProgress(percent);
         checkButton.setEnabled(!working);downloadButton.setVisibility(release==null?View.GONE:View.VISIBLE);downloadButton.setEnabled(!working);
         downloadButton.setText(apk.isFile()?"Install update":"Download update");cancelButton.setVisibility(working?View.VISIBLE:View.GONE);
@@ -159,17 +160,27 @@ public final class AppUpdates {
         if(disposed||!host.allowed())return;
         if(dialog!=null&&dialog.isShowing())return;
         LinearLayout box=new LinearLayout(activity);box.setOrientation(LinearLayout.VERTICAL);int p=(int)(20*activity.getResources().getDisplayMetrics().density);box.setPadding(p,p,p,p);
-        text=new TextView(activity);text.setTextIsSelectable(true);box.addView(text);
+        text=new TextView(activity);text.setTextIsSelectable(true);text.setTextSize(14);text.setTypeface(android.graphics.Typeface.create("sans-serif",0));text.setLineSpacing(4,1);box.addView(text);
+        notesButton=new Button(activity);notesButton.setText("What’s new");notesButton.setAllCaps(false);notesButton.setTypeface(android.graphics.Typeface.create("sans-serif",0));notesButton.setOnClickListener(v->showReleaseNotes());box.addView(notesButton);
         progress=new ProgressBar(activity,null,android.R.attr.progressBarStyleHorizontal);progress.setMax(100);box.addView(progress,new LinearLayout.LayoutParams(-1,-2));
         checkButton=new Button(activity);checkButton.setText("Check for updates");checkButton.setOnClickListener(v->check(true));box.addView(checkButton);
-        downloadButton=new Button(activity);downloadButton.setOnClickListener(v->{if(apk.isFile())install();else download();});box.addView(downloadButton);
+        downloadButton=new Button(activity);downloadButton.setOnClickListener(v->{if(apk.isFile())install();else download();});box.addView(downloadButton);box.removeView(downloadButton);box.addView(downloadButton,box.indexOfChild(checkButton));downloadButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xff235fcf));downloadButton.setTextColor(0xffffffff);
         cancelButton=new Button(activity);cancelButton.setText("Cancel download / check");cancelButton.setOnClickListener(v->cancel());box.addView(cancelButton);
         ScrollView scroll=new ScrollView(activity);scroll.addView(box);
-        dialog=new AlertDialog.Builder(activity).setTitle("App updates").setView(scroll).setPositiveButton("Close",null).create();dialog.show();redraw();
+        TextView title=new TextView(activity);title.setText("App updates");title.setTextSize(21);title.setTypeface(android.graphics.Typeface.create("sans-serif-medium",0));title.setPadding(p,p,p,0);
+        for(Button button:new Button[]{checkButton,downloadButton,cancelButton}){button.setAllCaps(false);button.setTypeface(android.graphics.Typeface.create("sans-serif-medium",0));button.setTextSize(14);button.setMinHeight((int)(44*activity.getResources().getDisplayMetrics().density));}
+        dialog=new AlertDialog.Builder(activity).setCustomTitle(title).setView(scroll).setPositiveButton("Close",null).create();dialog.show();redraw();
         if(!working&&release==null){working=true;redraw();worker.execute(()->{
             Release cached=null;try{if(manifest.isFile()){Release r=parseSigned(read(manifest),UpdateConfig.PUBLIC_KEY);if(r.code>installedCode&&Build.VERSION.SDK_INT>=r.minSdk){cached=r;if(apk.isFile())validateApk(activity,apk,r);}else{apk.delete();manifest.delete();}}}catch(Exception e){apk.delete();manifest.delete();cached=null;}
             final Release result=cached;post(()->{release=result;working=false;if(result!=null)status=apk.isFile()?"Download verified. Tap Install update.":"Update available. Tap Download update.";redraw();});
         });}
+    }
+    private void showReleaseNotes(){
+        if(release==null||disposed||!host.allowed())return;
+        TextView body=new TextView(activity);body.setText(release.notes);body.setTextSize(14);body.setTypeface(android.graphics.Typeface.create("sans-serif",0));body.setTextIsSelectable(true);body.setLineSpacing(4,1);
+        int p=(int)(20*activity.getResources().getDisplayMetrics().density);body.setPadding(p,p,p,p);ScrollView scroll=new ScrollView(activity);scroll.addView(body);
+        notesDialog=new AlertDialog.Builder(activity).setTitle("What’s new · "+release.name).setView(scroll).setPositiveButton("Back",null).create();
+        notesDialog.setOnDismissListener(d->notesDialog=null);notesDialog.show();
     }
     public void checkAutomatically(){
         if(disposed||working||!host.allowed())return;
@@ -252,6 +263,6 @@ public final class AppUpdates {
         });
     }
     private void cancel(){cancelled=true;HttpURLConnection c=connection;if(c!=null)c.disconnect();status="Cancelling…";redraw();}
-    public void pause(){if(dialog!=null){dialog.dismiss();dialog=null;}text=null;}
+    public void pause(){if(notesDialog!=null){notesDialog.dismiss();notesDialog=null;}if(dialog!=null){dialog.dismiss();dialog=null;}text=null;}
     public void dispose(){disposed=true;cancel();pause();main.removeCallbacksAndMessages(null);worker.shutdownNow();}
 }

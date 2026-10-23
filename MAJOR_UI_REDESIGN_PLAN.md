@@ -1,3 +1,7 @@
+## 1.24 refinement delivery
+
+Implemented compact rubric/remedy rows, global remedy visibility, automatic chapter browsing, name-only book selection, mixed-source case entries, a rubric-row/remedy-column matrix, compact weight controls and an optional update-notes reader. See [the current guide](CLINICAL_UI_GUIDE_1.24.md) and [verification report](TEST_REPORT_1.24.md).
+
 # Open Repertory — major clinical UI redesign
 
 Prepared 22 October 2026. Audience: practising homeopaths using Android phones and tablets. Status: **core redesign implemented in v1.23**. The original design brief follows; see CLINICAL_UI_GUIDE_1.23.md and TEST_REPORT_1.23.md for implemented behaviour and verification limits.
