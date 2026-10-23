@@ -23,3 +23,6 @@ Android testing found an inherited failure: after 60 seconds, the local-workspac
 
 ## Implemented phase status
 Phases 1–4 are implemented. Phase 5 automated verification and signed package preparation are complete; public release verification is recorded separately after publication. See TEST_REPORT_1.25.md for measured results and limits.
+
+## Publication complete
+Phase 5 is complete. Version 1.25 is published as normal Latest; the public APK bytes and signed updater metadata were downloaded and verified. All five phases are complete. See PUBLIC_RELEASE_VERIFICATION_1.25.json in the update repository.

@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-23T04:05:08.225138+00:00",
+  "authenticatedDownload": false,
+  "latestChannelVersionCode": 26,
+  "latestChannelVersionName": "1.25-dev",
+  "metadataSignatureVerified": true,
+  "apkUrl": "https://github.com/devil01529/Openrepertory-update/releases/download/v1.25/Open-Repertory-1.25.apk",
+  "apkSha256": "5a52a3a999a9b8219527be9cec122a82cd7bb6ffa3ce2a9e21ac19caa739dfc2",
+  "apkSize": 26831340,
+  "matchesTestedApk": true
+}

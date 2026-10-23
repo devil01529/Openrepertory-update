@@ -83,3 +83,5 @@ The live v1.19 → v1.20 update was also verified end to end: discovery, native 
 The public v1.23 update metadata signature and APK download were verified after publication; the downloaded bytes match the tested APK exactly. [Public verification record](PUBLIC_RELEASE_VERIFICATION_1.23.json).
 
 The public v1.24 Latest metadata signature and APK bytes were verified after publication. [Verification record](PUBLIC_RELEASE_VERIFICATION_1.24.json).
+
+The public v1.25 Latest metadata signature and APK bytes were verified after publication. [Verification record](PUBLIC_RELEASE_VERIFICATION_1.25.json).

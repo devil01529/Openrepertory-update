@@ -48,3 +48,7 @@ APK bytes: **26831340**. SHA-256: `5a52a3a999a9b8219527be9cec122a82cd7bb6ffa3ce2
 Automated checks cover Chromium and an API 28 emulator with WebView 66. Physical-device performance and vendor-specific behavior may vary. The software emulator’s large-book startup timing is not a physical-phone benchmark. Existing clinical and access workflows are regression-tested; this is not a claim that every possible device or clinical scenario is bug-free.
 
 [Usage guide](CLINICAL_UI_GUIDE_1.25.md) · [Detailed phased plan](REPERTORY_TREE_IMPROVEMENT_PLAN.md)
+
+## Public release verification
+
+GitHub Actions run 39898342714 independently verified the prepared artifacts and published normal Latest release v1.25. An unauthenticated download through the public Latest endpoint verified the metadata signature, versionCode 26, APK size and SHA-256; downloaded bytes exactly match the tested final APK. [Public verification record](PUBLIC_RELEASE_VERIFICATION_1.25.json). Released APK and signed metadata remain unchanged.
