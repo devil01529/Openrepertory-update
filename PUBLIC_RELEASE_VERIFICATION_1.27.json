@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-23T12:20:29.206730+00:00",
+  "authenticatedDownload": false,
+  "latestChannelVersionCode": 28,
+  "latestChannelVersionName": "1.27-dev",
+  "metadataSignatureVerified": true,
+  "apkUrl": "https://github.com/devil01529/Openrepertory-update/releases/download/v1.27/Open-Repertory-1.27.apk",
+  "apkSha256": "7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a",
+  "apkSize": 26839609,
+  "matchesTestedApk": true
+}

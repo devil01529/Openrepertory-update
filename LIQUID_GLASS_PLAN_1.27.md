@@ -33,3 +33,7 @@ Create an Apple-inspired glass appearance for Open Repertory’s navigation and 
 ## Completion record
 
 All four implementation/review phases are complete through signed release preparation. 1354 automated checks passed; the 1.26→1.27 upgrade retained 7 encrypted records and phone identity. Public publication/download verification is recorded separately after release. See TEST_REPORT_1.27.md and LIQUID_GLASS_REVIEW_1.27.md.
+
+## Public 1.27 release verification
+
+[GitHub release job](https://github.com/devil01529/Openrepertory-update/actions/runs/39952491482) completed successfully and published version 1.27 as Latest. An anonymous download verified the metadata signature and exact tested APK: versionCode 28, 26,839,609 bytes, SHA-256 `7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a`. See [verification record](PUBLIC_RELEASE_VERIFICATION_1.27.json).

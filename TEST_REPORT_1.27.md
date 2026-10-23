@@ -54,3 +54,7 @@ APK size: **26839609 bytes**. SHA-256: `7c52fcba9d38de398bf5a4edc18106c3c254c114
 Automated Chromium/Android emulator testing found no outstanding failures in these scenarios. It cannot guarantee zero bugs on every device; physical-device performance and vendor-specific rendering remain user-device validation limits. Public download verification is recorded after publication without changing released assets.
 
 [Usage guide](CLINICAL_UI_GUIDE_1.27.md) · [Phased plan](LIQUID_GLASS_PLAN_1.27.md)
+
+## Public 1.27 release verification
+
+[GitHub release job](https://github.com/devil01529/Openrepertory-update/actions/runs/39952491482) completed successfully and published version 1.27 as Latest. An anonymous download verified the metadata signature and exact tested APK: versionCode 28, 26,839,609 bytes, SHA-256 `7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a`. See [verification record](PUBLIC_RELEASE_VERIFICATION_1.27.json).
