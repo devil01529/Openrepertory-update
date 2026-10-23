@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-23T16:52:31.554177+00:00",
+  "authenticatedDownload": false,
+  "latestChannelVersionCode": 30,
+  "latestChannelVersionName": "1.29-dev",
+  "metadataSignatureVerified": true,
+  "apkUrl": "https://github.com/devil01529/Openrepertory-update/releases/download/v1.29/Open-Repertory-1.29.apk",
+  "apkSha256": "cd4fb1a5b02492d37d31f3bfb7a9fbf12d95104992bb71135531c3b591e841b4",
+  "apkSize": 26839609,
+  "matchesTestedApk": true
+}

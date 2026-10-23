@@ -11,3 +11,5 @@ Materia Medica tests cover five viewports (320×640, 393×800, 640×360, 768×85
 Limits: Android instrumentation and physical-device frame-time measurements were not rerun in this iteration. Older native test results are not counted here. Browser checks do not guarantee zero bugs on every device.
 
 APK SHA-256: `cd4fb1a5b02492d37d31f3bfb7a9fbf12d95104992bb71135531c3b591e841b4`
+
+Public release verified: GitHub Actions run 39990279902 succeeded. Anonymous latest-channel metadata has a valid signature for version code 30 / 1.29-dev. The public APK matches the tested local SHA-256 and size. See PUBLIC_RELEASE_VERIFICATION_1.29.json.
