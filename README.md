@@ -22,6 +22,16 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
+## New in 1.29
+
+The top backup reminder and patient/case strip are removed. Switch context inside Today’s consultation card. Backups remain in the menu and Today; interrupted-work recovery is retained.
+
+Materia Medica opens on source text, with **Read / Case links / My notes** views, author selection and a **Jump to section** picker. The compact browser retains search, aliases, source-only filtering, notes sorting and remedy comparison.
+
+**678 browser/package checks passed**. Clinical source data and native authentication/session code remain unchanged. No new physical-device frame-rate or Android instrumentation claim is made.
+
+[Download 1.29](https://github.com/devil01529/Openrepertory-update/releases/download/v1.29/Open-Repertory-1.29.apk) · [Guide](CLINICAL_UI_GUIDE_1.29.md) · [Phased plan](MATERIA_MEDICA_PLAN_1.29.md) · [Validation](TEST_REPORT_1.29.md)
+
 ## New in 1.28
 
 **Repertory → Aa Repertory & reading** now opens all reading controls directly above the book workspace. Both reading entries have been removed from the main menu. The button appears only on Repertory. Saved text, remedies, branches, finder, privacy and glass settings remain available.
