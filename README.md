@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.26** restores illustrated chapters, adds menu-based text/reading controls and preserves warm unlocked-device sessions. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.27** adds a coordinated glass-inspired interface with readable clinical surfaces and a saved solid-mode switch. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -21,6 +21,20 @@ GitHub's standard free public release hosting is used, subject to its policies a
 The native app pins a public RSA verification key. It validates release signatures, HTTPS destinations, download hash/size, package, version, Android compatibility and the existing APK signing identity before handing the APK to Android. Never replace a published release with different files; issue a corrected release under a higher Android version code.
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
+
+## New in 1.27
+
+A glass-inspired header, navigation dock/tablet rail, tools menu, tabs, cards and dialogs. Light/dark/automatic themes, restrained highlights and clear active states. Clinical reading, remedy grades, analysis values, forms and privacy shields stay opaque.
+
+**Menu → Repertory & reading → Glass effects** controls translucency. Turn it off for solid materials; older Android WebViews use a solid fallback automatically. Existing text sizing, chapter pictures/scrolling, rubric selection/clipboard, source switching, analysis, records, backups, warm sessions and owner approval remain available. Presentation-mode exit now immediately restores consultation labels.
+
+![Glass Today workspace](docs/glass-today-1.27.png)
+
+[Guide](CLINICAL_UI_GUIDE_1.27.md) · [Four-phase plan](LIQUID_GLASS_PLAN_1.27.md) · [Independent review](LIQUID_GLASS_REVIEW_1.27.md) · [Reading menu](docs/glass-reading-1.27.png) · [Dark repertory](docs/glass-repertory-dark-1.27.png) · [Dark analysis](docs/glass-analysis-dark-1.27.png)
+
+**1354 automated checks passed**, including two independent browser reviews and actual Android WebView 66, device lock/unlock, approval and owner-management regressions. Upgrade from 1.26 to the final APK retains 7 encrypted records and phone identity. [Test report](TEST_REPORT_1.27.md).
+
+[Download v1.27](https://github.com/devil01529/Openrepertory-update/releases/download/v1.27/Open-Repertory-1.27.apk) · [Source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.27/Open-Repertory-1.27-Clinical-UI-Source.zip)
 
 ## New in 1.26
 

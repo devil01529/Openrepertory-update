@@ -1,0 +1,115 @@
+{
+  "release": "1.27",
+  "versionCode": 28,
+  "suites": [
+    {
+      "suite": "liquid-glass-long-names-tests",
+      "label": "Full long-name retention, wrapping and Today reachability at three text sizes",
+      "passed": 130
+    },
+    {
+      "suite": "liquid-glass-tests",
+      "label": "Independent glass UI workflows, fallback, text sizing and clinical preservation",
+      "passed": 323
+    },
+    {
+      "suite": "liquid-glass-independent-review",
+      "label": "Independent screenshot contrast, themes, privacy and presentation-exit review",
+      "passed": 225
+    },
+    {
+      "suite": "reading-session-ui-tests",
+      "label": "Illustrated drawer scrolling, reading menu and text sizing",
+      "passed": 124
+    },
+    {
+      "suite": "navigation-tree-tests",
+      "label": "Today gestures, chapter filtering, picker and branch navigation",
+      "passed": 115
+    },
+    {
+      "suite": "compact-workspace-tests",
+      "label": "Responsive layouts and mixed-source workflows",
+      "passed": 100
+    },
+    {
+      "suite": "source-switch-guard-tests",
+      "label": "Mixed-source identity and persistence",
+      "passed": 24
+    },
+    {
+      "suite": "scoring-compatibility-tests",
+      "label": "Four-method score compatibility with published 1.23",
+      "passed": 16
+    },
+    {
+      "suite": "menu-web-tests",
+      "label": "Menu navigation, accessibility and responsive layouts",
+      "passed": 81
+    },
+    {
+      "suite": "browser-reliability",
+      "label": "Recovery, failed saves, backups and print workflows",
+      "passed": 14
+    },
+    {
+      "suite": "browser-snapshot-tests",
+      "label": "Snapshot persistence and search state",
+      "passed": 3
+    },
+    {
+      "suite": "kent-oorep-audit-tests",
+      "label": "Retained electronic Kent source comparison",
+      "passed": 18
+    },
+    {
+      "suite": "clinical-package-tests",
+      "label": "Final APK assets, preceding-release clinical integrity, identity and updater safeguards",
+      "passed": 23
+    },
+    {
+      "suite": "release-tool-tests",
+      "label": "Release preparation and rejection safeguards",
+      "passed": 8
+    },
+    {
+      "suite": "SessionChecks",
+      "label": "Android warm-state retention, native text zoom and actual keyguard/PIN unlock",
+      "passed": 16
+    },
+    {
+      "suite": "StartupChecks",
+      "label": "Android startup recovery and quiet foreground return",
+      "passed": 17
+    },
+    {
+      "suite": "MenuChecks",
+      "label": "Packaged Android chapters, menu, clipboard, analysis and Back",
+      "passed": 42
+    },
+    {
+      "suite": "ApperChecks",
+      "label": "Android approval, denial, revocation and account isolation",
+      "passed": 33
+    },
+    {
+      "suite": "OwnerManagementChecks",
+      "label": "Android owner approval-management workflows",
+      "passed": 14
+    },
+    {
+      "suite": "GlassChecks",
+      "label": "Actual WebView 66 glass fallback, text zoom, source grades and privacy",
+      "passed": 20
+    },
+    {
+      "suite": "ShortContextChecks",
+      "label": "Actual WebView compact context and usable reading space",
+      "passed": 8
+    }
+  ],
+  "totalPassed": 1354,
+  "apkSha256": "7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a",
+  "apkSize": 26839609,
+  "upgradeRecordsRetained": 7
+}

@@ -1,0 +1,47 @@
+{
+  "finalApkSha256": "7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a",
+  "sessionStartupApkSha256": "2b3df366af61b23a96417edd47f78a1b14b63c3148d591144cda19ac217c0cb1",
+  "nativeDexByteIdentical": true,
+  "allJavascriptByteIdentical": true,
+  "retainedSuites": [
+    "SessionChecks",
+    "StartupChecks",
+    "MenuChecks",
+    "ApperChecks",
+    "OwnerManagementChecks",
+    "GlassChecks"
+  ],
+  "retainedReason": "All native classes and all JavaScript are byte-identical across retained suite APKs and the final APK. Build2b\u2192ff93 changes only selected Add/importance CSS, ff93\u2192220 adds readable panel-heading/count colors and centers menu dots,220\u2192664 wraps long Today names, and664\u21927c52 compacts short-screen context. Saved CSS diffs document every step. Glass20 covers the visual rules through664; final ShortContext8 covers the only subsequent media rule after exact final upgrade.",
+  "finalApkSuites": [
+    "ShortContextChecks"
+  ],
+  "cssDiffFile": "native-selection-style-diff.txt",
+  "nativeClassesSha256": "836131d439ae8c1b5155acec67e2451cdeae4690d06686a3531ae57cfcc90d38",
+  "retainedSuiteNativeClassesSha256": "836131d439ae8c1b5155acec67e2451cdeae4690d06686a3531ae57cfcc90d38",
+  "suiteApkSha256": {
+    "SessionChecks": "2b3df366af61b23a96417edd47f78a1b14b63c3148d591144cda19ac217c0cb1",
+    "StartupChecks": "2b3df366af61b23a96417edd47f78a1b14b63c3148d591144cda19ac217c0cb1",
+    "MenuChecks": "ff93a9ac0e54d777190f54f3bbe4fd900407ca01e0607a2f3ea80c1cc937ce73",
+    "ApperChecks": "ff93a9ac0e54d777190f54f3bbe4fd900407ca01e0607a2f3ea80c1cc937ce73",
+    "OwnerManagementChecks": "ff93a9ac0e54d777190f54f3bbe4fd900407ca01e0607a2f3ea80c1cc937ce73",
+    "GlassChecks": "664c002916dd5b531f067ed1204081d3ff0136b3e4ab9b05fa48f34bb69c9588",
+    "ShortContextChecks": "7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a"
+  },
+  "passedChecksBySuite": {
+    "SessionChecks": 16,
+    "StartupChecks": 17,
+    "MenuChecks": 42,
+    "ApperChecks": 33,
+    "OwnerManagementChecks": 14,
+    "GlassChecks": 20,
+    "ShortContextChecks": 8
+  },
+  "totalNativePassed": 150,
+  "upgradeRecordsRetained": 7,
+  "upgradeFinalApkSha256": "7c52fcba9d38de398bf5a4edc18106c3c254c11491b74085c7a501005d96605a",
+  "status": "passed",
+  "emulatorRestart": "Existing encrypted clinical126 userdata preserved after environment idle gap and unlocked through normal disk/Android PIN UI. Final baseline1.26 preparation and exact final replacement/verification occurred after restart without uninstalling or clearing storage.",
+  "headingCssDiffFile": "native-heading-style-diff.txt",
+  "nameWrapCssDiffFile": "native-name-wrap-style-diff.txt",
+  "shortContextCssDiffFile": "native-short-context-style-diff.txt"
+}
