@@ -22,6 +22,14 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
+## New in 1.30
+
+Materia Medica’s section dropdown is now an app-styled, searchable picker with compact rows, selected-section checkmark, large-text support and reduced-motion handling. It closes and jumps directly to the chosen source heading.
+
+**377 browser/package checks passed**. Source data and native classes are unchanged. Android instrumentation was not rerun in this iteration.
+
+[Download 1.30](https://github.com/devil01529/Openrepertory-update/releases/download/v1.30/Open-Repertory-1.30.apk) · [Guide](CLINICAL_UI_GUIDE_1.30.md) · [Validation](TEST_REPORT_1.30.md)
+
 ## New in 1.29
 
 The top backup reminder and patient/case strip are removed. Switch context inside Today’s consultation card. Backups remain in the menu and Today; interrupted-work recovery is retained.
