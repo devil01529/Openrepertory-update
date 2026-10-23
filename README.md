@@ -22,6 +22,14 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
+## New in 1.28
+
+**Repertory → Aa Repertory & reading** now opens all reading controls directly above the book workspace. Both reading entries have been removed from the main menu. The button appears only on Repertory. Saved text, remedies, branches, finder, privacy and glass settings remain available.
+
+A lightweight entrance respects reduced motion. **554 browser/package checks passed**; this iteration does not claim new Android instrumentation or physical-device frame-rate measurements.
+
+[Download 1.28](https://github.com/devil01529/Openrepertory-update/releases/download/v1.28/Open-Repertory-1.28.apk) · [Guide](CLINICAL_UI_GUIDE_1.28.md) · [Phased UI plan](UI_PLAN_1.28.md) · [Validation](TEST_REPORT_1.28.md)
+
 ## New in 1.27
 
 A glass-inspired header, navigation dock/tablet rail, tools menu, tabs, cards and dialogs. Light/dark/automatic themes, restrained highlights and clear active states. Clinical reading, remedy grades, analysis values, forms and privacy shields stay opaque.
