@@ -47,3 +47,7 @@ Package checks verify the browser-tested modules/styles and the native classes e
 APK bytes: **26831340**. SHA-256: `191149e13daf1349ce6d28ab79b745da121e081cc5ff13d3cfa19b9cee50e1ec`.
 
 Physical-phone frame timing, Samsung-specific system-font settings, a fresh live Apper credential login and clinician usability timing were not certified. The web layouts and Android emulator establish the tested scope. The Kent comparison is against the retained OOREP electronic snapshot, not a new printed-book scan audit. Older UI acceptance scripts describe their release-specific behaviours; the targeted 1.24 suite is listed in INTEGRATION_1.24.md.
+
+## Published download verification
+
+The public Latest endpoint now serves versionCode 25 (1.24-dev). Its RSA metadata signature verifies against the pinned key. The public 26,831,340-byte APK download matches the final tested artifact exactly: `191149e13daf1349ce6d28ab79b745da121e081cc5ff13d3cfa19b9cee50e1ec`. No GitHub credentials were supplied by the verification client. See [the verification record](PUBLIC_RELEASE_VERIFICATION_1.24.json).

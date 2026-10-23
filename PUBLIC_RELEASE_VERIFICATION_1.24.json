@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-23T02:57:11.407107+00:00",
+  "authenticatedDownload": false,
+  "latestChannelVersionCode": 25,
+  "latestChannelVersionName": "1.24-dev",
+  "metadataSignatureVerified": true,
+  "apkUrl": "https://github.com/devil01529/Openrepertory-update/releases/download/v1.24/Open-Repertory-1.24.apk",
+  "apkSha256": "191149e13daf1349ce6d28ab79b745da121e081cc5ff13d3cfa19b9cee50e1ec",
+  "apkSize": 26831340,
+  "matchesTestedApk": true
+}
