@@ -1,0 +1,90 @@
+{
+  "release": "1.26",
+  "versionCode": 27,
+  "suites": [
+    {
+      "suite": "reading-session-ui-tests",
+      "label": "Illustrated drawer scrolling, menu controls, text sizing and light/dark contrast",
+      "passed": 124
+    },
+    {
+      "suite": "navigation-tree-tests",
+      "label": "Today gestures, chapter filtering, picker and branch navigation",
+      "passed": 115
+    },
+    {
+      "suite": "compact-workspace-tests",
+      "label": "Responsive clinical layouts and mixed-source workflows",
+      "passed": 100
+    },
+    {
+      "suite": "source-switch-guard-tests",
+      "label": "Mixed-source identity and persistence",
+      "passed": 24
+    },
+    {
+      "suite": "scoring-compatibility-tests",
+      "label": "Four-method score compatibility with published 1.23",
+      "passed": 16
+    },
+    {
+      "suite": "menu-web-tests",
+      "label": "Menu navigation, accessibility and responsive layouts",
+      "passed": 81
+    },
+    {
+      "suite": "browser-reliability",
+      "label": "Recovery, failed saves, backups and print workflows",
+      "passed": 14
+    },
+    {
+      "suite": "browser-snapshot-tests",
+      "label": "Snapshot persistence and search state",
+      "passed": 3
+    },
+    {
+      "suite": "kent-oorep-audit-tests",
+      "label": "Retained electronic Kent source comparison",
+      "passed": 18
+    },
+    {
+      "suite": "clinical-package-tests",
+      "label": "Final APK assets, clinical data, identity and updater safeguards",
+      "passed": 17
+    },
+    {
+      "suite": "release-tool-tests",
+      "label": "Release preparation and rejection safeguards",
+      "passed": 8
+    },
+    {
+      "suite": "SessionChecks",
+      "label": "Native background preservation, text zoom and actual keyguard/PIN unlock",
+      "passed": 16
+    },
+    {
+      "suite": "StartupChecks",
+      "label": "Native startup recovery and quiet foreground return",
+      "passed": 17
+    },
+    {
+      "suite": "MenuChecks",
+      "label": "Packaged Android UI, chapters, clipboard, analysis and Back",
+      "passed": 42
+    },
+    {
+      "suite": "ApperChecks",
+      "label": "Native approval, denial and revocation",
+      "passed": 33
+    },
+    {
+      "suite": "OwnerManagementChecks",
+      "label": "Native owner approval-management workflows",
+      "passed": 14
+    }
+  ],
+  "totalPassed": 642,
+  "apkSha256": "a65c30a9b181adb84bf9acd80d8a95a40120141995d9a1390e8084f307a40962",
+  "apkSize": 26835436,
+  "upgradeRecordsRetained": 5
+}

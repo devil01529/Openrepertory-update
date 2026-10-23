@@ -2,7 +2,7 @@
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.25** fixes Today scrolling and adds a compact, searchable chapter index with clearer rubric branches. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.26** restores illustrated chapters, adds menu-based text/reading controls and preserves warm unlocked-device sessions. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -21,6 +21,18 @@ GitHub's standard free public release hosting is used, subject to its policies a
 The native app pins a public RSA verification key. It validates release signatures, HTTPS destinations, download hash/size, package, version, Android compatibility and the existing APK signing identity before handing the APK to Android. Never replace a published release with different files; issue a corrected release under a higher Android version code.
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
+
+## New in 1.26
+
+Chapter pictures are back. The whole drawer scrolls, including the controls above the chapters. **Menu → Repertory & reading** contains A−/A+ text sizing (80–140%), Reset, remedies, branches, patient words and reading/privacy settings. The repertory top strip is clearer. Analysis explanation/heading colors follow the light/dark theme.
+
+Warm background returns on an unlocked phone preserve the clinical document/page, reading position and case without a login cover or one-minute relock. Owner approval refreshes quietly. Device locking still hides the workspace and blocks clinical access; Android unlock can resume a previously authenticated surviving session after approval revalidation. Cold starts still require authentication.
+
+![Illustrated chapters](docs/clinical-chapters-1.26.png)
+
+[Usage guide](CLINICAL_UI_GUIDE_1.26.md) · [Implementation plan](UI_SESSION_PLAN_1.26.md) · [Reading menu](docs/clinical-reading-1.26.png) · [Dark analysis](docs/clinical-analysis-dark-1.26.png) · [Test report](TEST_REPORT_1.26.md): **642 checks passed**, including actual Android screen lock/PIN unlock, native text zoom, warm-state retention and owner revocation. The 1.25 → final 1.26 upgrade retains 5 encrypted records and phone identity.
+
+[Download v1.26](https://github.com/devil01529/Openrepertory-update/releases/download/v1.26/Open-Repertory-1.26.apk) · [Source overlay](https://github.com/devil01529/Openrepertory-update/releases/download/v1.26/Open-Repertory-1.26-Clinical-UI-Source.zip)
 
 ## New in 1.25
 
