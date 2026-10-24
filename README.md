@@ -22,6 +22,14 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
+## New in 1.31
+
+Adds audited, owner-authorized Boericke, BBCR and Allen 1891 TPB data. Kent is unchanged. Earlier OCR editions remain available for existing cases. Source anomalies are retained for review and excluded from scoring; higher grades survive case saves and encrypted backups. TPB's source is marked under development. This is a full API-record audit, not printed-book scan certification.
+
+**529 counted automated checks passed**, plus exhaustive source comparison. Phatak, Synthetic and Complete await authorized structured exports.
+
+[Download 1.31](https://github.com/devil01529/Openrepertory-update/releases/download/v1.31/Open-Repertory-1.31.apk) · [Comparison](REPERTORY_COMPARISON_1.31.md) · [Guide](CLINICAL_UI_GUIDE_1.31.md) · [Validation](TEST_REPORT_1.31.md)
+
 ## New in 1.30
 
 Materia Medica’s section dropdown is now an app-styled, searchable picker with compact rows, selected-section checkmark, large-text support and reduced-motion handling. It closes and jumps directly to the chosen source heading.
