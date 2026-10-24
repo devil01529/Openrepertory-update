@@ -22,6 +22,14 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
+## New in 1.32
+
+Restores Kent-style pictures across all 330 chapter entries, including Boericke, BBCR and TPB. Fresh imports provide 78 monographs from proofread Mure/Anshutz digital editions; seven are newly matched and one duplicate is removed. 337 suspect OCR passages are withheld with a recoverable audit archive. Retained OCR is labelled not fully proofread. Boericke has been structurally screened with ten independently compared samples; no full-book proofreading claim. Kent and all other repertory data remain unchanged.
+
+**425 counted checks passed**, including Android WebView workflows and a real install-over-update preserving seven encrypted records and device identity.
+
+[Download 1.32](https://github.com/devil01529/Openrepertory-update/releases/download/v1.32/Open-Repertory-1.32.apk) · [Content review and guide](MATERIA_CONTENT_REVIEW_1.32.md) · [Validation](TEST_REPORT_1.32.md)
+
 ## New in 1.31
 
 Adds audited, owner-authorized Boericke, BBCR and Allen 1891 TPB data. Kent is unchanged. Earlier OCR editions remain available for existing cases. Source anomalies are retained for review and excluded from scoring; higher grades survive case saves and encrypted backups. TPB's source is marked under development. This is a full API-record audit, not printed-book scan certification.
