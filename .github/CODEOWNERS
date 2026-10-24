@@ -1,0 +1,6 @@
+# Proposed ownership policy; enforce via a GitHub ruleset requiring code-owner review.
+* @devil01529
+/.github/ @devil01529
+/scripts/ @devil01529
+/release-config.json @devil01529
+/release-public-key.pem @devil01529
