@@ -44,7 +44,8 @@ jobs:
           fi
           assets=("$folder/"*.apk "$folder/update.json" "$folder/RELEASE_NOTES.md" "$folder/SHA256SUMS")
           shopt -s nullglob
-          for file in "$folder/"*.zip "$folder/"TEST_REPORT_*.md "$folder/UPDATE_OWNER_GUIDE.md"; do
+          # Do not publish source ZIPs or internal audit snapshots as public release assets.
+          for file in "$folder/"TEST_REPORT_*.md "$folder/UPDATE_OWNER_GUIDE.md"; do
             if [[ -f "$file" ]]; then assets+=("$file"); fi
           done
           gh release upload "$RELEASE_TAG" "${assets[@]}" --clobber
