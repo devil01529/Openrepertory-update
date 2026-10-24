@@ -9,3 +9,5 @@ The picker suite covers five viewport sizes, light/dark themes, 140% text, exact
 Limits: browser and package checks only in this iteration; Android instrumentation and physical-device frame pacing were not rerun. No zero-bug guarantee.
 
 APK SHA-256: `0550c9be8ce7a4d23444a57f00ed6258fc7d808c730afd7ba59beab2e776ef59`
+
+Public delivery verified: GitHub Actions run 40048922931 succeeded. Anonymous latest-channel metadata has a valid signature for version code 31 / 1.30-dev. The downloaded public APK matches the tested local SHA-256 and size. See PUBLIC_RELEASE_VERIFICATION_1.30.json.
