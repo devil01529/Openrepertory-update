@@ -1,0 +1,39 @@
+name: Keep latest five releases
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 4 * * *'
+  release:
+    types: [published]
+permissions:
+  contents: write
+concurrency:
+  group: publish-apk
+  cancel-in-progress: false
+jobs:
+  retain:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Test release retention safeguards
+        run: python3 tests/test_release_retention.py
+      - name: Delete obsolete releases oldest first
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: python3 scripts/retain_releases.py --repo "$GH_REPO" --apply --prune-prepared
+      - name: Commit removal of old prepared binaries
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Retain prepared files for latest five releases'
+            gh auth setup-git
+            git push origin HEAD:main
+          fi

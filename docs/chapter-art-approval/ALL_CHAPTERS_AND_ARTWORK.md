@@ -1,6 +1,6 @@
 # Chapter artwork approval list
 
-137 chapters. Draft illustrations will not be integrated until you approve.
+137 chapters. Owner-approved artwork integrated in version 1.34.
 
 ## Boericke — 25 chapters
 

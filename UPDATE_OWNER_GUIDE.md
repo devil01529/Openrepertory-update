@@ -84,3 +84,9 @@ If a release is faulty, remove its public availability and restore the preceding
 The app verifies the signed manifest, APK hash and size, package/version, signing certificate and Android compatibility. Downloads use HTTPS and a restricted set of GitHub asset hosts. Only the verified APK is exposed read-only to Android's installer. No remote page can supply an arbitrary APK URL to the native bridge.
 
 Do not change the repository URL or public verification key in place and expect already installed apps to discover it. Such changes need a compatible app update while the old channel remains available. An update-channel outage does not change Apper approval rules or erase records.
+
+## Keeping only five versions
+
+The repository automatically keeps the five newest published app releases. Cleanup deletes older releases and their tags oldest first and removes obsolete prepared files from the current branch. Drafts are preserved. It runs after the publish workflow, when a release is published manually, and daily. You can also run **Actions → Keep latest five releases → Run workflow**.
+
+The script refuses to delete the release serving the latest update endpoint. If a workflow fails, inspect Actions; no automatic policy can run when GitHub Actions is disabled. Previous git commits are retained; this is release retention, not a history rewrite.

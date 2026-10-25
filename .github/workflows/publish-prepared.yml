@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+      - name: Test release retention safeguards
+        run: python3 tests/test_release_retention.py
       - name: Verify independently signed release and APK bytes
         env:
           RELEASE_TAG: ${{ inputs.tag }}
@@ -56,3 +58,18 @@ jobs:
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ inputs.tag }}
         run: gh release edit "$RELEASE_TAG" --draft=false --latest
+      - name: Retain only the latest five releases
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 scripts/retain_releases.py --repo "$GH_REPO" --apply --prune-prepared
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Retain prepared files for latest five releases'
+            gh auth setup-git
+            git push origin HEAD:main
+          fi
