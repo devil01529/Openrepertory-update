@@ -1,3 +1,7 @@
+## New in 1.33
+
+Adds 16 specific clinical chapter illustrations, replacing generic reused pictures for the reported topics. [Download APK](https://github.com/devil01529/Openrepertory-update/releases/download/v1.33/Open-Repertory-1.33.apk). Browser navigation and image checks passed; clinical data and native code are unchanged. No new physical-device test is claimed.
+
 # Open Repertory — free APK updates
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
