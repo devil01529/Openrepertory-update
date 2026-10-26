@@ -1,5 +1,11 @@
 # Open Repertory — free APK updates
 
+## Next UI and app-handling plan
+
+The [phased roadmap](APK_UI_HANDLING_ROADMAP.md) prioritizes smoother chapter browsing, preserved consultation context, access to every scored remedy, Library reading and Android handling. It is a proposal based on measurements of 1.37; these phases are not a new APK release.
+
+The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK remains 1.37.
+
 ## New in 1.37
 
 Exact source review from analysis, a direct return to the prior view, ten-second Undo for rubric removal/clearing, safer clear confirmation, saved analysis-view preferences and clearer evidence grades. Existing databases and scoring are preserved. Synthesis and Complete were researched but are not bundled without a verified authorized export.

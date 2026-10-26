@@ -1,0 +1,18 @@
+{
+  "url": "https://www.curarproject.com/_downloads/1fa3bd46fa165fe426765becc58be805",
+  "kind": "bibliography, not rubric/remedy database",
+  "pageCount": 197,
+  "bytes": 2418864,
+  "sha256": "41f86a7b2b6ba8dad0a0fed90ea14148c34151cfe7e119868bf961de9abb5a59",
+  "firstPageColumns": [
+    "author",
+    "title",
+    "publication",
+    "volume",
+    "page",
+    "year",
+    "addition count"
+  ],
+  "bundledInApk": false,
+  "scope": "Inspected PDF metadata and first-page layout; no repertory content or grading audit claimed"
+}

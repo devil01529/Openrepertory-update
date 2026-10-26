@@ -1,0 +1,92 @@
+{
+  "version": "1.37-dev",
+  "scope": "Read-only review in isolated desktop Chromium contexts; synthetic consultation uses existing English Kent rows. These are browser/DOM observations, not physical-phone performance or clinical quality measurements. No app source, native records or dataset files were changed.",
+  "observations": [
+    {
+      "viewport": [
+        393,
+        850
+      ],
+      "initialChapter": {
+        "rubricElements": 264,
+        "remedyButtons": 2788,
+        "descendants": 5027,
+        "readingHeight": 599,
+        "viewportHeight": 850,
+        "remediesHidden": true
+      },
+      "afterThreeBottomScrolls": {
+        "rubricElements": 1145,
+        "remedyButtons": 12184,
+        "descendants": 21811,
+        "readingHeight": 599,
+        "viewportHeight": 850,
+        "remediesHidden": true
+      },
+      "analysisWith20RealSourceRubrics": {
+        "allScoredRemedies": 294,
+        "shownColumns": 120,
+        "renderedMatrixCells": 2400,
+        "importanceTargets": [
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "clearLabel": "Clear all"
+      },
+      "javascriptErrors": []
+    },
+    {
+      "viewport": [
+        1280,
+        900
+      ],
+      "initialChapter": {
+        "rubricElements": 264,
+        "remedyButtons": 2788,
+        "descendants": 5027,
+        "readingHeight": 717,
+        "viewportHeight": 900,
+        "remediesHidden": true
+      },
+      "afterThreeBottomScrolls": {
+        "rubricElements": 1145,
+        "remedyButtons": 12184,
+        "descendants": 21811,
+        "readingHeight": 717,
+        "viewportHeight": 900,
+        "remediesHidden": true
+      },
+      "analysisWith20RealSourceRubrics": {
+        "allScoredRemedies": 294,
+        "shownColumns": 120,
+        "renderedMatrixCells": 2400,
+        "importanceTargets": [
+          {
+            "width": 40,
+            "height": 36
+          },
+          {
+            "width": 40,
+            "height": 36
+          },
+          {
+            "width": 40,
+            "height": 36
+          }
+        ],
+        "clearLabel": "Clear all"
+      },
+      "javascriptErrors": []
+    }
+  ]
+}
