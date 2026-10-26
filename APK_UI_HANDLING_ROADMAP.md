@@ -1,6 +1,6 @@
 # Open Repertory: next UI and handling roadmap
 
-Prepared 26 October 2026 for practising homeopaths using phones and tablets. Baseline: published 1.37. **This is a proposed implementation plan; its phases have not been added to the APK.** Modern repertory acquisition is a separate workstream and does not block UI improvements.
+Prepared 26 October 2026 for practising homeopaths using phones and tablets. Baseline: published 1.37. **Status after 1.38:** full-result remedy search/paging and filtered-grade distinction from Phase 3 are implemented. The other phases below remain proposed work. Modern repertory acquisition is a separate workstream and does not block UI improvements.
 
 ## Intended consultation flow
 

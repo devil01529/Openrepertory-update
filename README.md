@@ -1,10 +1,18 @@
 # Open Repertory — free APK updates
 
+## New in 1.38
+
+Adds **Guernsey — Haemorrhoids (1892)** as a graded offline repertory: the complete twenty-page repertory section, three sections, 518 entries, 138 identified remedies and 316 reference links. Four ambiguous printed remedy occurrences are retained unscored. Modern Synthesis and Complete Repertory are not bundled.
+
+Ranking and Matrix now search/page through **every scored remedy**, including results beyond rank 120. Twenty-four remedies are displayed per page, with no arbitrary rubric-selection count cutoff. Also corrects large-record encryption on older Android Keystore providers. Existing books, scoring, encryption format, native access rules and signing identity are retained.
+
+[Usage guide](OWNER_GUIDE_1.38.md) · [Source audit and comparison](GUERNSEY_SOURCE_AUDIT_1.38.md) · [Validation](TEST_REPORT_1.38.md)
+
 ## Next UI and app-handling plan
 
-The [phased roadmap](APK_UI_HANDLING_ROADMAP.md) prioritizes smoother chapter browsing, preserved consultation context, access to every scored remedy, Library reading and Android handling. It is a proposal based on measurements of 1.37; these phases are not a new APK release.
+The [phased roadmap](APK_UI_HANDLING_ROADMAP.md) prioritizes smoother chapter browsing, preserved consultation context, access to every scored remedy, Library reading and Android handling. The roadmap is based on measurements of 1.37. Version 1.38 implements the full-result search/paging part of Phase 3; the remaining phases are proposals.
 
-The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK remains 1.37.
+The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK is 1.38; its added historical specialist book is a separate work.
 
 ## New in 1.37
 
@@ -20,7 +28,7 @@ Keeps book names and simplifies provider labels to **Open Repertory source**, wi
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.35** removes the three requested repertories while preserving saved cases and adds Wolf’s complete Apis monograph. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get **1.38**.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
