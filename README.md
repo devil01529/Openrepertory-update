@@ -6,7 +6,7 @@ Adds 16 specific clinical chapter illustrations, replacing generic reused pictur
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.34** adds approved chapter illustrations and stronger access validation. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. **Version 1.35** removes the three requested repertories while preserving saved cases and adds Wolf’s complete Apis monograph. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get it.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
@@ -26,11 +26,13 @@ The native app pins a public RSA verification key. It validates release signatur
 
 Keep the existing Android keystore and the separate metadata signing key in secure owner-controlled storage, outside this repository. See the guide before changing the repository URL or verification keys.
 
-## New in 1.34
+## New in 1.35
 
-Adds all 137 approved chapter illustrations for Boericke, BBCR and TPB, moves repeated source notes into the information panel, and strengthens native and Apper access validation. Clinical databases and scoring are unchanged.
+Removes Clarke, Knerr and Boger repertories from the APK. Existing saved rubric evidence, source IDs, grades, analysis, snapshots and exports remain usable. Kent and the seven remaining repertory databases are unchanged.
 
-[Release notes](UPDATE_RELEASE_NOTES_1.34.md)
+Adds C. W. Wolf’s complete *Apis Mellifica* (1858), with 12 original sections, to Materia Medica. Existing library passages remain intact. Online alternative repertory sources were researched; none was bundled without a verified rights and content audit.
+
+[Release notes](UPDATE_RELEASE_NOTES_1.35.md) · [Repertory alternatives](REPERTORY_ALTERNATIVES_1.35.md) · [Materia Medica addition and research](MATERIA_ADDITION_1.35.md) · [Validation](TEST_REPORT_1.35.md)
 
 ## Release retention
 
