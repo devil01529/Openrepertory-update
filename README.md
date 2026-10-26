@@ -1,5 +1,11 @@
 # Open Repertory — free APK updates
 
+## New in 1.37
+
+Exact source review from analysis, a direct return to the prior view, ten-second Undo for rubric removal/clearing, safer clear confirmation, saved analysis-view preferences and clearer evidence grades. Existing databases and scoring are preserved. Synthesis and Complete were researched but are not bundled without a verified authorized export.
+
+[Guide](OWNER_GUIDE_1.37.md) · [Plan](CLINICIAN_IMPROVEMENT_PLAN_1.37.md) · [Source research](SYNTHESIS_COMPLETE_RESEARCH_1.37.md) · [Validation](TEST_REPORT_1.37.md)
+
 ## New in 1.36
 
 Keeps book names and simplifies provider labels to **Open Repertory source**, with original credits and licences accessible separately. Adds encrypted remembered approval for up to 30 days, quiet access checks, faster startup before the full repertory loads, and fixes to source-switching, early Library use and sign-out. Clinical data, grades, images and signing identity are retained.

@@ -95,3 +95,8 @@ The script refuses to delete the release serving the latest update endpoint. If 
 ## Remembered access and source labels in 1.36
 
 See [the 1.36 app usage guide](OWNER_GUIDE_1.36.md) for remembered-approval expiry, quiet checks, device locking, sign-out, and Legal credits. Previously verified access is bounded to 30 days when a server decision cannot be checked.
+
+
+## Clinical source review and Undo in 1.37
+
+See [the 1.37 usage guide](OWNER_GUIDE_1.37.md) for exact rubric-source review, Undo, clear confirmation and remembered analysis views. [Synthesis/Complete research](SYNTHESIS_COMPLETE_RESEARCH_1.37.md) explains the original-data and distribution inputs needed before either can be bundled.
