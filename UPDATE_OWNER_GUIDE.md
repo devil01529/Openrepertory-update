@@ -90,3 +90,8 @@ Do not change the repository URL or public verification key in place and expect 
 The repository automatically keeps the five newest published app releases. Cleanup deletes older releases and their tags oldest first and removes obsolete prepared files from the current branch. Drafts are preserved. It runs after the publish workflow, when a release is published manually, and daily. You can also run **Actions → Keep latest five releases → Run workflow**.
 
 The script refuses to delete the release serving the latest update endpoint. If a workflow fails, inspect Actions; no automatic policy can run when GitHub Actions is disabled. Previous git commits are retained; this is release retention, not a history rewrite.
+
+
+## Remembered access and source labels in 1.36
+
+See [the 1.36 app usage guide](OWNER_GUIDE_1.36.md) for remembered-approval expiry, quiet checks, device locking, sign-out, and Legal credits. Previously verified access is bounded to 30 days when a server decision cannot be checked.

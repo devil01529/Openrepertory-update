@@ -1,8 +1,10 @@
-## New in 1.33
-
-Adds 16 specific clinical chapter illustrations, replacing generic reused pictures for the reported topics. [Download APK](https://github.com/devil01529/Openrepertory-update/releases/download/v1.33/Open-Repertory-1.33.apk). Browser navigation and image checks passed; clinical data and native code are unchanged. No new physical-device test is claimed.
-
 # Open Repertory — free APK updates
+
+## New in 1.36
+
+Keeps book names and simplifies provider labels to **Open Repertory source**, with original credits and licences accessible separately. Adds encrypted remembered approval for up to 30 days, quiet access checks, faster startup before the full repertory loads, and fixes to source-switching, early Library use and sign-out. Clinical data, grades, images and signing identity are retained.
+
+[Usage guide](OWNER_GUIDE_1.36.md) · [Improvement plan](IMPROVEMENT_PLAN_1.36.md) · [Validation](TEST_REPORT_1.36.md)
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
