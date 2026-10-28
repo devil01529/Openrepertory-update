@@ -1,5 +1,11 @@
 # Open Repertory — free APK updates
 
+## New in 1.40
+
+Adds an on-demand Consultation review with patient/visit, analysis, reference, snapshot and backup actions; case-specific recent searches; faster hidden remedy lists; and Materia Medica text finding with exact mixed-book case links. Fixes chapter scope drifting to whole-book search and reading settings appearing changed after a failed save. Databases, source grades, scoring and native security remain intact.
+
+[Eight-part clinician plan](CLINICIAN_APP_PLAN_1.40.md) · [Usage guide](OWNER_GUIDE_1.40.md) · [Validation](TEST_REPORT_1.40.md)
+
 ## New in 1.39
 
 Refines the glass UI with floating navigation, a moving selection capsule, rounded sheets, touch feedback and saved Glass effects/Reduce motion controls under Settings → Visual effects. Clinical reading remains opaque. All clinical content, scoring and native security code are unchanged.
@@ -18,7 +24,7 @@ Ranking and Matrix now search/page through **every scored remedy**, including re
 
 The [phased roadmap](APK_UI_HANDLING_ROADMAP.md) prioritizes smoother chapter browsing, preserved consultation context, access to every scored remedy, Library reading and Android handling. The roadmap is based on measurements of 1.37. Version 1.38 implements the full-result search/paging part of Phase 3; the remaining phases are proposals.
 
-The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK is 1.39; its added historical specialist book is a separate work.
+The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK is 1.40; its added historical specialist book is a separate work.
 
 ## New in 1.37
 
@@ -34,7 +40,7 @@ Keeps book names and simplifies provider labels to **Open Repertory source**, wi
 
 Download: **[Latest release](https://github.com/devil01529/Openrepertory-update/releases/latest)**
 
-Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get **1.39**.
+Install the APK over your existing Open Repertory installation. **Do not uninstall or clear app storage.** The first updater-enabled release is 1.19. From an updater-enabled version, open **⋮ → App updates → Check for updates** to get **1.40**.
 
 Android asks you to allow installation and confirm the update. Existing Apper login and owner approval remain required. Public APK downloads do not grant access to clinical records.
 
