@@ -1,5 +1,14 @@
 # Open Repertory — free APK updates
 
+## Latest update: 1.41
+
+Native App updates, download progress and release notes now share a rounded glass-style interface, saved light/dark theme and bundled readable font. The signed download/install safeguards and all existing clinical content are retained. Install over the existing app.
+
+Additional online repertory candidates were researched; none passed complete proofreading for this release, so no uncertain clinical records were added.
+
+[Download 1.41](https://github.com/devil01529/Openrepertory-update/releases/download/v1.41/Open-Repertory-1.41.apk) · [Guide](OWNER_GUIDE_1.41.md) · [Source review](REPERTORY_SOURCE_REVIEW_1.41.md) · [Validation](TEST_REPORT_1.41.md)
+
+
 ## New in 1.40
 
 Adds an on-demand Consultation review with patient/visit, analysis, reference, snapshot and backup actions; case-specific recent searches; faster hidden remedy lists; and Materia Medica text finding with exact mixed-book case links. Fixes chapter scope drifting to whole-book search and reading settings appearing changed after a failed save. Databases, source grades, scoring and native security remain intact.
@@ -24,7 +33,7 @@ Ranking and Matrix now search/page through **every scored remedy**, including re
 
 The [phased roadmap](APK_UI_HANDLING_ROADMAP.md) prioritizes smoother chapter browsing, preserved consultation context, access to every scored remedy, Library reading and Android handling. The roadmap is based on measurements of 1.37. Version 1.38 implements the full-result search/paging part of Phase 3; the remaining phases are proposals.
 
-The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK is 1.40; its added historical specialist book is a separate work.
+The [renewed Synthesis and Complete source review](SYNTHESIS_COMPLETE_FOLLOWUP.md) records the author downloads and publisher terms checked. No verified full export authorized for this APK was obtained, so neither requested repertory has been added. The latest APK is 1.41; its added historical specialist book is a separate work.
 
 ## New in 1.37
 

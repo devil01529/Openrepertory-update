@@ -21,7 +21,7 @@ import java.util.concurrent.*;
 public final class AppUpdates {
     public static final long MAX_APK=200L*1024*1024, CHECK_INTERVAL=24L*60*60*1000;
     public static final String MANIFEST_URL="https://github.com/"+UpdateConfig.REPOSITORY+"/releases/latest/download/update.json";
-    public interface Host {boolean allowed(); void beforeInstall(Runnable action);}
+    public interface Host {boolean allowed(); void beforeInstall(Runnable action); default JSONObject appearance(){return new JSONObject();}}
     public interface TransferEvents {boolean cancelled(); void progress(int percent);}
     public static void transfer(InputStream in,File destination,long expected,TransferEvents events)throws Exception {
         if(expected<=0||expected>MAX_APK)throw new SecurityException("Invalid download size");
@@ -57,7 +57,8 @@ public final class AppUpdates {
     private volatile HttpURLConnection connection;
     private volatile Release release;
     private AlertDialog dialog,notesDialog;
-    private TextView text;
+    private TextView text,progressLabel;
+    private UpdateGlass material;
     private Button checkButton,downloadButton,cancelButton,notesButton;
     private ProgressBar progress;
     private String status="Check for a newer version. Your records stay on this phone.";
@@ -153,23 +154,28 @@ public final class AppUpdates {
         text.setText("Installed: "+installedName+available+"\n\n"+status+"\nLast checked: "+last);
         if(notesButton!=null)notesButton.setVisibility(release==null?View.GONE:View.VISIBLE);
         progress.setVisibility(working?View.VISIBLE:View.GONE);progress.setIndeterminate(percent<0);if(percent>=0)progress.setProgress(percent);
-        checkButton.setEnabled(!working);downloadButton.setVisibility(release==null?View.GONE:View.VISIBLE);downloadButton.setEnabled(!working);
-        downloadButton.setText(apk.isFile()?"Install update":"Download update");cancelButton.setVisibility(working?View.VISIBLE:View.GONE);
+        if(progressLabel!=null){progressLabel.setVisibility(working?View.VISIBLE:View.GONE);progressLabel.setText(percent<0?status:("Downloaded "+percent+"%"));}
+        checkButton.setEnabled(!working);checkButton.setVisibility(working?View.GONE:View.VISIBLE);downloadButton.setVisibility(release==null||working?View.GONE:View.VISIBLE);downloadButton.setEnabled(!working);
+        downloadButton.setText(working?(percent>=0?"Downloading…":"Please wait…"):apk.isFile()?"Install update":"Download update");cancelButton.setVisibility(working?View.VISIBLE:View.GONE);
     }
     public void show(){
         if(disposed||!host.allowed())return;
         if(dialog!=null&&dialog.isShowing())return;
+        material=new UpdateGlass(activity,host.appearance());
         LinearLayout box=new LinearLayout(activity);box.setOrientation(LinearLayout.VERTICAL);int p=(int)(20*activity.getResources().getDisplayMetrics().density);box.setPadding(p,p,p,p);
         text=new TextView(activity);text.setTextIsSelectable(true);text.setTextSize(14);text.setTypeface(android.graphics.Typeface.create("sans-serif",0));text.setLineSpacing(4,1);box.addView(text);
         notesButton=new Button(activity);notesButton.setText("What’s new");notesButton.setAllCaps(false);notesButton.setTypeface(android.graphics.Typeface.create("sans-serif",0));notesButton.setOnClickListener(v->showReleaseNotes());box.addView(notesButton);
-        progress=new ProgressBar(activity,null,android.R.attr.progressBarStyleHorizontal);progress.setMax(100);box.addView(progress,new LinearLayout.LayoutParams(-1,-2));
+        progress=new ProgressBar(activity,null,android.R.attr.progressBarStyleHorizontal);progress.setMax(100);box.addView(progress,new LinearLayout.LayoutParams(-1,material.dp(6)));
+        progress.setProgressTintList(android.content.res.ColorStateList.valueOf(material.accent));progress.setIndeterminateTintList(android.content.res.ColorStateList.valueOf(material.accent));
+        progressLabel=new TextView(activity);progressLabel.setTextSize(13);progressLabel.setPadding(0,material.dp(8),0,0);box.addView(progressLabel);
         checkButton=new Button(activity);checkButton.setText("Check for updates");checkButton.setOnClickListener(v->check(true));box.addView(checkButton);
         downloadButton=new Button(activity);downloadButton.setOnClickListener(v->{if(apk.isFile())install();else download();});box.addView(downloadButton);box.removeView(downloadButton);box.addView(downloadButton,box.indexOfChild(checkButton));downloadButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xff235fcf));downloadButton.setTextColor(0xffffffff);
         cancelButton=new Button(activity);cancelButton.setText("Cancel download / check");cancelButton.setOnClickListener(v->cancel());box.addView(cancelButton);
         ScrollView scroll=new ScrollView(activity);scroll.addView(box);
         TextView title=new TextView(activity);title.setText("App updates");title.setTextSize(21);title.setTypeface(android.graphics.Typeface.create("sans-serif-medium",0));title.setPadding(p,p,p,0);
         for(Button button:new Button[]{checkButton,downloadButton,cancelButton}){button.setAllCaps(false);button.setTypeface(android.graphics.Typeface.create("sans-serif-medium",0));button.setTextSize(14);button.setMinHeight((int)(44*activity.getResources().getDisplayMetrics().density));}
-        dialog=new AlertDialog.Builder(activity).setCustomTitle(title).setView(scroll).setPositiveButton("Close",null).create();dialog.show();redraw();
+        dialog=new AlertDialog.Builder(activity).setCustomTitle(title).setView(scroll).setPositiveButton("Close",null).create();material.show(dialog);material.label(title,true);
+        for(Button button:new Button[]{checkButton,downloadButton,cancelButton,notesButton})material.button(button,button==downloadButton);redraw();
         if(!working&&release==null){working=true;redraw();worker.execute(()->{
             Release cached=null;try{if(manifest.isFile()){Release r=parseSigned(read(manifest),UpdateConfig.PUBLIC_KEY);if(r.code>installedCode&&Build.VERSION.SDK_INT>=r.minSdk){cached=r;if(apk.isFile())validateApk(activity,apk,r);}else{apk.delete();manifest.delete();}}}catch(Exception e){apk.delete();manifest.delete();cached=null;}
             final Release result=cached;post(()->{release=result;working=false;if(result!=null)status=apk.isFile()?"Download verified. Tap Install update.":"Update available. Tap Download update.";redraw();});
@@ -180,7 +186,7 @@ public final class AppUpdates {
         TextView body=new TextView(activity);body.setText(release.notes);body.setTextSize(14);body.setTypeface(android.graphics.Typeface.create("sans-serif",0));body.setTextIsSelectable(true);body.setLineSpacing(4,1);
         int p=(int)(20*activity.getResources().getDisplayMetrics().density);body.setPadding(p,p,p,p);ScrollView scroll=new ScrollView(activity);scroll.addView(body);
         notesDialog=new AlertDialog.Builder(activity).setTitle("What’s new · "+release.name).setView(scroll).setPositiveButton("Back",null).create();
-        notesDialog.setOnDismissListener(d->notesDialog=null);notesDialog.show();
+        notesDialog.setOnDismissListener(d->notesDialog=null);new UpdateGlass(activity,host.appearance()).show(notesDialog);
     }
     public void checkAutomatically(){
         if(disposed||working||!host.allowed())return;
@@ -209,7 +215,7 @@ public final class AppUpdates {
                     if(!manual&&release!=null&&host.allowed()&&(dialog==null||!dialog.isShowing())&&prefs.getInt("lastNotified",0)!=release.code){
                         prefs.edit().putInt("lastNotified",release.code).apply();
                         dialog=new AlertDialog.Builder(activity).setTitle("Update available · "+release.name).setMessage("An update to Open Repertory is ready. Your records will stay on this phone.")
-                            .setPositiveButton("View update",(d,w)->{dialog=null;show();}).setNegativeButton("Later",(d,w)->dialog=null).create();dialog.show();
+                            .setPositiveButton("View update",(d,w)->{dialog=null;show();}).setNegativeButton("Later",(d,w)->dialog=null).create();new UpdateGlass(activity,host.appearance()).show(dialog);
                     }
                 });
             }catch(Exception e){post(()->{working=false;status=cancelled?"Check cancelled.":e instanceof FileNotFoundException?"No published update is available yet. Try again later.":e instanceof SecurityException?"Update verification failed. Nothing was installed.":"Could not check for updates. Check your connection and retry. Your current app remains usable.";redraw();});}
