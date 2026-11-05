@@ -1,0 +1,20 @@
+{
+  "nodes": 30747,
+  "chapters": 61,
+  "index_rows": 0,
+  "source_ids": 30709,
+  "duplicate_node_ids": [],
+  "remedies_used": 497,
+  "scored_links": 421484,
+  "grade_counts": {
+    "3": 65874,
+    "1": 227940,
+    "2": 93357,
+    "4": 34313
+  },
+  "invalid_scored_grades": 0,
+  "references": 0,
+  "sha256": "7c84b0d1806e6e70f89684d94992bad28dcacfc3bb6f9cff125f0db5b685ebb2",
+  "live_error": "No cached first page; live comparison unavailable",
+  "status": "STRUCTURAL_AUDIT_COMPLETE_SOURCE_COMPARISON_PARTIAL_OR_UNAVAILABLE"
+}

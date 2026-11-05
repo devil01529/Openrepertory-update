@@ -1,0 +1,3 @@
+#!/bin/sh
+# Read-only audit. Pass a recovered assets/www/data directory and output/cache paths.
+exec python3 "$(dirname "$0")/scripts/audit_repertories.py" "$@"

@@ -1,0 +1,16 @@
+{
+  "nodes": 1641,
+  "chapters": 6,
+  "index_rows": 0,
+  "source_ids": 1640,
+  "duplicate_node_ids": [],
+  "remedies_used": 120,
+  "scored_links": 48090,
+  "grade_counts": {
+    "1": 48090
+  },
+  "invalid_scored_grades": 0,
+  "references": 0,
+  "sha256": "8edf7f001f5c87452c385c4bfb4b8bf53a432ef950e8d838b5fd5efa9ece16da",
+  "status": "STRUCTURAL_AUDIT_COMPLETE_SOURCE_COMPARISON_PARTIAL_OR_UNAVAILABLE"
+}
