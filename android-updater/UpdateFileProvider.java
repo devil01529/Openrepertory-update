@@ -24,7 +24,7 @@ public final class UpdateFileProvider extends ContentProvider {
         try{
             File f=file(uri);String[] columns=projection==null?new String[]{OpenableColumns.DISPLAY_NAME,OpenableColumns.SIZE}:projection;
             MatrixCursor cursor=new MatrixCursor(columns);Object[] row=new Object[columns.length];
-            for(int i=0;i<columns.length;i++)row[i]=OpenableColumns.DISPLAY_NAME.equals(columns[i])?"Open-Repertory-update.apk":OpenableColumns.SIZE.equals(columns[i])?f.length():null;
+            for(int i=0;i<columns.length;i++)row[i]=OpenableColumns.DISPLAY_NAME.equals(columns[i])?"Similora-update.apk":OpenableColumns.SIZE.equals(columns[i])?f.length():null;
             cursor.addRow(row);return cursor;
         }catch(Exception e){throw new IllegalArgumentException("Unknown update");}
     }

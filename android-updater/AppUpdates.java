@@ -131,7 +131,7 @@ public final class AppUpdates {
             if(!trustedUrl(url))throw new SecurityException("Untrusted update destination");
             HttpURLConnection c=(HttpURLConnection)url.openConnection();connection=c;
             c.setInstanceFollowRedirects(false);c.setConnectTimeout(15000);c.setReadTimeout(30000);
-            c.setRequestProperty("User-Agent","OpenRepertory-Android/"+installedName);c.setRequestProperty("Accept-Encoding","identity");
+            c.setRequestProperty("User-Agent","Similora-Android/"+installedName);c.setRequestProperty("Accept-Encoding","identity");
             int response=c.getResponseCode();
             if(response==301||response==302||response==303||response==307||response==308){String location=c.getHeaderField("Location");c.disconnect();if(location==null)throw new IOException("Missing download location");url=new URL(url,location);continue;}
             if(response==404){c.disconnect();throw new FileNotFoundException("No published update is available yet");}
@@ -214,7 +214,7 @@ public final class AppUpdates {
                     redraw();
                     if(!manual&&release!=null&&host.allowed()&&(dialog==null||!dialog.isShowing())&&prefs.getInt("lastNotified",0)!=release.code){
                         prefs.edit().putInt("lastNotified",release.code).apply();
-                        dialog=new AlertDialog.Builder(activity).setTitle("Update available · "+release.name).setMessage("An update to Open Repertory is ready. Your records will stay on this phone.")
+                        dialog=new AlertDialog.Builder(activity).setTitle("Update available · "+release.name).setMessage("An update to Similora is ready. Your records will stay on this phone.")
                             .setPositiveButton("View update",(d,w)->{dialog=null;show();}).setNegativeButton("Later",(d,w)->dialog=null).create();new UpdateGlass(activity,host.appearance()).show(dialog);
                     }
                 });
@@ -252,8 +252,8 @@ public final class AppUpdates {
             try{Release pinned=parseSigned(read(manifest),UpdateConfig.PUBLIC_KEY);if(!pinned.sha256.equals(selected.sha256))throw new SecurityException();validateApk(activity,apk,pinned);
                 post(()->{working=false;if(!host.allowed())return;
                     if(Build.VERSION.SDK_INT>=26&&!activity.getPackageManager().canRequestPackageInstalls()){
-                        status="Allow installation from Open Repertory in Android settings, then return here and tap Install update again.";redraw();
-                        try{activity.startActivity(new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,Uri.parse("package:"+activity.getPackageName())));}catch(Exception e){status="Open Android Settings → Apps → Special access → Install unknown apps, then allow Open Repertory.";redraw();}return;
+                        status="Allow installation from Similora in Android settings, then return here and tap Install update again.";redraw();
+                        try{activity.startActivity(new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,Uri.parse("package:"+activity.getPackageName())));}catch(Exception e){status="Open Android Settings → Apps → Special access → Install unknown apps, then allow Similora.";redraw();}return;
                     }
                     host.beforeInstall(()->{
                         if(!host.allowed())return;

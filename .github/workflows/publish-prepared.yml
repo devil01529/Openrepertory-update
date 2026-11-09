@@ -42,7 +42,7 @@ jobs:
           if gh release view "$RELEASE_TAG" --json isDraft > /tmp/release-state.json; then
             python3 -c 'import json; assert json.load(open("/tmp/release-state.json"))["isDraft"], "Refusing to replace a published release"'
           else
-            gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "Open Repertory ${RELEASE_TAG#v}" --notes-file "$folder/RELEASE_NOTES.md"
+            gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "Similora ${RELEASE_TAG#v}" --notes-file "$folder/RELEASE_NOTES.md"
           fi
           assets=("$folder/"*.apk "$folder/update.json" "$folder/RELEASE_NOTES.md" "$folder/SHA256SUMS")
           shopt -s nullglob

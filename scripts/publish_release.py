@@ -21,7 +21,7 @@ if metadata['archived'] or not metadata.get('permissions',{}).get('push'):raise 
 exists=subprocess.run(['gh','release','view',a.tag,'--repo',repo,'--json','isDraft'],capture_output=True,text=True)
 if exists.returncode==0:
     if not json.loads(exists.stdout)['isDraft']:raise SystemExit('This release is already public. Publish corrections under a higher version, never replace a published release.')
-else:subprocess.run(['gh','release','create',a.tag,'--repo',repo,'--target',metadata['default_branch'],'--draft','--title','Open Repertory '+m['versionName'],'--notes-file',str(a.directory/'RELEASE_NOTES.md')],check=True)
+else:subprocess.run(['gh','release','create',a.tag,'--repo',repo,'--target',metadata['default_branch'],'--draft','--title','Similora '+m['versionName'],'--notes-file',str(a.directory/'RELEASE_NOTES.md')],check=True)
 assets=[str(a.directory/file) for file in [name,'update.json','RELEASE_NOTES.md','SHA256SUMS']]
 # Only drafts may be retried. Public assets are immutable by this workflow.
 subprocess.run(['gh','release','upload',a.tag,*assets,'--repo',repo,'--clobber'],check=True)
