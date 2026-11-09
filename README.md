@@ -1,4 +1,4 @@
-# Open Repertory — free APK updates
+# Similora — Android updates
 
 ## Latest update: 1.41
 
