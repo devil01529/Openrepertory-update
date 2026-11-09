@@ -1,0 +1,13 @@
+{
+  "status": "SOURCE_NOT_IN_GITHUB_DUMP",
+  "source": "boericke",
+  "available": [
+    "kent-de",
+    "publicum"
+  ],
+  "identity": {
+    "apk_book_sha256": "f03eba899335537a1958db70aecb0fb7b92cc5dc6c13335913d5a4bda69447a5",
+    "dump_sha256": "0a20753505bd99e1942382f6fca7c6d9a29cd8fad0715ebbade64c1bbf11948e",
+    "source": "boericke"
+  }
+}

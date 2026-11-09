@@ -1,0 +1,16 @@
+{
+  "status": "COMPARISON_COMPLETE_REVIEW_DIFFERENCES",
+  "source": "publicum",
+  "identity": {
+    "apk_book_sha256": "33df63f4aebc74bfc689b3230ec23a1ce1fce1d1419bef21248ba318b8db0179",
+    "dump_sha256": "0a20753505bd99e1942382f6fca7c6d9a29cd8fad0715ebbade64c1bbf11948e",
+    "source": "publicum"
+  },
+  "source_rows": 74667,
+  "packaged_source_ids": 75704,
+  "groups_compared": 75703,
+  "apk_source_ids_absent_from_dump_count": 1263,
+  "groups_with_differences": 9724,
+  "scope": "Grouped source IDs and exact abbreviation/grade sets; differences require edition review, not automatic insertion. No full-path or printed-book verification.",
+  "dump_source_ids_not_mapped_in_apk_count": 226
+}
