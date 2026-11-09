@@ -1,0 +1,362 @@
+{
+  "scope": "Static inspection of released v1.41; not device/emulator validation",
+  "application": {
+    "theme": "@7F030000",
+    "label": "Open Repertory",
+    "icon": "@7F020002",
+    "debuggable": "false",
+    "allowBackup": "false",
+    "supportsRtl": "true",
+    "fullBackupContent": "false",
+    "usesCleartextTraffic": "false",
+    "roundIcon": "@7F020002",
+    "dataExtractionRules": "@7F040000"
+  },
+  "components": [
+    {
+      "type": "provider",
+      "name": "com.openrepertory.app.UpdateFileProvider",
+      "exported": "false",
+      "authorities": "com.openrepertory.app.dev.updates",
+      "grantUriPermissions": "true",
+      "intent_filters": 0
+    },
+    {
+      "type": "activity",
+      "name": "com.openrepertory.app.ImprovedActivity",
+      "exported": "true",
+      "configChanges": "0x00000DA0",
+      "windowSoftInputMode": "0x00000010",
+      "intent_filters": 1
+    }
+  ],
+  "security_calls": [
+    {
+      "class": "Lcom/openrepertory/app/AppUpdates;",
+      "method": "lambda$19$com-openrepertory-app-AppUpdates",
+      "evidence": [
+        "move-result-object v1",
+        "const/4 v2, 1",
+        "invoke-virtual v1, v2, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccess;",
+      "method": "key",
+      "evidence": [
+        "const-string v0, \"AndroidKeyStore\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccess;",
+      "method": "read",
+      "evidence": [
+        "const/16 v3, 29",
+        "if-lt v2, v3, +03bh",
+        "const-string v2, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccess;",
+      "method": "save",
+      "evidence": [
+        "const-string v0, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccess;",
+      "method": "deviceId",
+      "evidence": [
+        "monitor-exit v9",
+        "return-object v0",
+        "const-string v0, \"AndroidKeyStore\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccess;",
+      "method": "deviceId",
+      "evidence": [
+        "if-nez v2, +035h",
+        "const-string v2, \"RSA\"",
+        "const-string v3, \"AndroidKeyStore\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;",
+        "move-result-object v8",
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V",
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V",
+        "invoke-virtual v8, v6, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V",
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setMixedContentMode(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "const/16 v3, 26",
+        "if-lt v2, v3, +005h",
+        "invoke-virtual v8, v0, Landroid/webkit/WebSettings;->setSafeBrowsingEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ApperAccessScreen;",
+      "method": "<init>",
+      "evidence": [
+        "iget-object v0, v7, Lcom/openrepertory/app/ApperAccessScreen;->browser Landroid/webkit/WebView;",
+        "invoke-virtual v8, v0, v6, Landroid/webkit/CookieManager;->setAcceptThirdPartyCookies(Landroid/webkit/WebView; Z)V",
+        "invoke-static v6, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/GeminiClient;",
+      "method": "key",
+      "evidence": [
+        "array-length v5, v3",
+        "if-ne v5, v6, +03ah",
+        "const-string v0, \"AndroidKeyStore\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/GeminiClient;",
+      "method": "key",
+      "evidence": [
+        "move-result-object v0",
+        "invoke-virtual v0, v2, Ljava/security/KeyStore;->load(Ljava/security/KeyStore$LoadStoreParameter;)V",
+        "const-string v5, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/MainActivity;",
+      "method": "onCreate",
+      "evidence": [
+        "move-result-object v4",
+        "const/16 v0, 8192",
+        "invoke-virtual v4, v0, Landroid/view/Window;->addFlags(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/MainActivity;",
+      "method": "updateCaptureProtection",
+      "evidence": [
+        "invoke-virtual v2, Lcom/openrepertory/app/MainActivity;->getWindow()Landroid/view/Window;",
+        "move-result-object v0",
+        "invoke-virtual v0, v1, Landroid/view/Window;->clearFlags(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/MainActivity;",
+      "method": "updateCaptureProtection",
+      "evidence": [
+        "invoke-virtual v2, Lcom/openrepertory/app/MainActivity;->getWindow()Landroid/view/Window;",
+        "move-result-object v0",
+        "invoke-virtual v0, v1, Landroid/view/Window;->addFlags(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/RecordStore;",
+      "method": "decrypt",
+      "evidence": [
+        "const/high16 v1, 67108864",
+        "if-gt v0, v1, +053h",
+        "const-string v0, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/RecordStore;",
+      "method": "key",
+      "evidence": [
+        "const-string v0, \"AndroidKeyStore\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/RecordStore;",
+      "method": "open",
+      "evidence": [
+        "const/high16 v6, 67108864",
+        "if-gt v5, v6, +040h",
+        "const-string v5, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/RecordStore;",
+      "method": "put",
+      "evidence": [
+        "if-eqz v3, +003h",
+        "return-void ",
+        "const-string v3, \"AES/GCM/NoPadding\""
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/UpdateGlass;",
+      "method": "show",
+      "evidence": [
+        "invoke-virtual v0, v2, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V",
+        "const/4 v2, 2",
+        "invoke-virtual v0, v2, Landroid/view/Window;->addFlags(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "blockClinical",
+      "evidence": [
+        "iget-object v1, v4, Lcom/openrepertory/app/ImprovedActivity;->view Landroid/webkit/WebView;",
+        "const-string v2, \"openrepertoryNative\"",
+        "invoke-virtual v1, v2, Landroid/webkit/WebView;->removeJavascriptInterface(Ljava/lang/String;)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "blockClinical",
+      "evidence": [
+        "iget-object v1, v4, Lcom/openrepertory/app/ImprovedActivity;->view Landroid/webkit/WebView;",
+        "const-string v2, \"openrepertorySecure\"",
+        "invoke-virtual v1, v2, Landroid/webkit/WebView;->removeJavascriptInterface(Ljava/lang/String;)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-direct v2, v5, v3, Lcom/openrepertory/app/GeminiClient;-><init>(Landroid/content/Context; Lcom/openrepertory/app/RecordStore;)V",
+        "iput-object v2, v5, Lcom/openrepertory/app/ImprovedActivity;->gemini Lcom/openrepertory/app/GeminiClient;",
+        "invoke-static v1, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;",
+        "move-result-object v2",
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V",
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setOffscreenPreRaster(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setOffscreenPreRaster(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V",
+        "invoke-virtual v2, v1, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V",
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setMixedContentMode(I)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "const/16 v4, 26",
+        "if-lt v3, v4, +005h",
+        "invoke-virtual v2, v0, Landroid/webkit/WebSettings;->setSafeBrowsingEnabled(Z)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-direct v2, v5, Lcom/openrepertory/app/ImprovedActivity$NativeBridge;-><init>(Lcom/openrepertory/app/ImprovedActivity;)V",
+        "const-string v3, \"openrepertoryNative\"",
+        "invoke-virtual v0, v2, v3, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object; Ljava/lang/String;)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "initializeClinical",
+      "evidence": [
+        "invoke-direct v2, v5, Lcom/openrepertory/app/ImprovedActivity$SecureBridge;-><init>(Lcom/openrepertory/app/ImprovedActivity;)V",
+        "const-string v3, \"openrepertorySecure\"",
+        "invoke-virtual v0, v2, v3, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object; Ljava/lang/String;)V"
+      ]
+    },
+    {
+      "class": "Lcom/openrepertory/app/ImprovedActivity;",
+      "method": "onDestroy",
+      "evidence": [
+        "iget-object v0, v3, Lcom/openrepertory/app/ImprovedActivity;->view Landroid/webkit/WebView;",
+        "const-string v1, \"openrepertorySecure\"",
+        "invoke-virtual v0, v1, Landroid/webkit/WebView;->removeJavascriptInterface(Ljava/lang/String;)V"
+      ]
+    }
+  ]
+}

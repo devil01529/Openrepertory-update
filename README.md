@@ -1,5 +1,8 @@
 # Similora — Android updates
 
+Current Android release status and preserved feature/security requirements: [Similora release handoff](docs/SIMILORA_RELEASE_HANDOFF.md). New signed APK publication remains blocked by the missing original build/signing setup; latest installable version is v1.41.
+
+
 ## Latest update: 1.41
 
 Native App updates, download progress and release notes now share a rounded glass-style interface, saved light/dark theme and bundled readable font. The signed download/install safeguards and all existing clinical content are retained. Install over the existing app.
