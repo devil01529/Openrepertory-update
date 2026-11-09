@@ -1,0 +1,66 @@
+{
+  "scope": "Packaged web assets in Chromium; native authentication, encryption, installer and live Gemini are not tested",
+  "books": {
+    "kent1897": {
+      "loaded": true,
+      "chapters": 37,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "kent": {
+      "loaded": true,
+      "chapters": 41,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "bbcr": {
+      "loaded": true,
+      "chapters": 57,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "tpb1846": {
+      "loaded": true,
+      "chapters": 6,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "boericke1906": {
+      "loaded": true,
+      "chapters": 25,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "bbcr1905_oorep": {
+      "loaded": true,
+      "chapters": 61,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "tpb1891": {
+      "loaded": true,
+      "chapters": 51,
+      "selected": true,
+      "ranking_nonempty": true
+    },
+    "guernsey1892": {
+      "loaded": true,
+      "chapters": 3,
+      "selected": true,
+      "ranking_nonempty": true
+    }
+  },
+  "errors": [],
+  "materia_medica": {
+    "profile_loaded": true,
+    "text_characters": 9899
+  },
+  "offline_finder": {
+    "completed": true,
+    "result_characters": 1898,
+    "no_key": true
+  },
+  "case_reload": {
+    "selected_count": 8
+  }
+}

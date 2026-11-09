@@ -1,0 +1,62 @@
+{
+  "boericke1906": {
+    "pages_compared": 11,
+    "pages_expected": 83,
+    "unique_live_ids": 1100,
+    "complete_live_coverage": false,
+    "missing_source_ids": [],
+    "changed_paths": [],
+    "changed_raw_associations": [],
+    "changed_scored_associations": [],
+    "changed_hierarchy": [],
+    "page_sha256": {
+      "0": "338a017949378948e106e5aa664251c635c4a135dff8f07336b230a6ae2ed221",
+      "1": "464145790b232315559cb8d16eacabd77538718e06c1c7646bc5b6a22323cf93",
+      "2": "6cf7477be54c0edaeac4655b48a8aa8b455b65bb5c4a2c174444986b3fb06264",
+      "3": "154d87e9316cd64b53f994e0193a8b158a17e1a78ae5900ec81378a805072e9a",
+      "4": "62c56f2e86f522d3b24bcb288d47c60cb72cad0acf2015f9a3a347b59b53a956",
+      "5": "67a65df87a316431f24271be52423ac24100329f63d9bffd7861b17ed9025060",
+      "6": "6512c1d5578249d4674c14e62f2c97e6aaa94037c09a3081629f2324cb543948",
+      "7": "26cde6306b9282995b24407a306f0e1c4993ae0cb57697076d002362ff10ac9d",
+      "8": "0194f923294f44ee92e667056532cbd2d4ddfb530cca19b5ff3027f858275fec",
+      "9": "3b352f6db35632cbc8b501ccb59741c42649b5fd1d579f02b26829cdbb9cf7f7",
+      "10": "2ea6e0fe473402649a4510b4d5e711235cfb6fd0baed17def043e2fcfffd8151"
+    }
+  },
+  "bbcr1905_oorep": {
+    "pages_compared": 6,
+    "pages_expected": 308,
+    "unique_live_ids": 600,
+    "complete_live_coverage": false,
+    "missing_source_ids": [],
+    "changed_paths": [],
+    "changed_raw_associations": [],
+    "changed_scored_associations": [],
+    "changed_hierarchy": [],
+    "page_sha256": {
+      "0": "8e09e5b0a2c644a49986c2b70c0a739a357bded3c1078483938fd40081b4003c",
+      "1": "c8b4db042007f1121f5100428c94a4cfb59864123d08f1685094f400338975c1",
+      "2": "0edf5d5644b25fd1db5a57c7cb4c21b9e675adb03a299fec2befeb1005ed2a91",
+      "3": "057ecc495e6adafb4fc6c31258699b6707f4680fb665b868d0f9dabf3466e387",
+      "4": "be00ab830fcddb82786c570212d3eb81bc0bef3e4a968b241fd287450763927d",
+      "6": "6734ae580134c5cad62e66788d6fd655e26916c88a13abf68daed81d277aa196"
+    }
+  },
+  "tpb1891": {
+    "pages_compared": 4,
+    "pages_expected": 29,
+    "unique_live_ids": 400,
+    "complete_live_coverage": false,
+    "missing_source_ids": [],
+    "changed_paths": [],
+    "changed_raw_associations": [],
+    "changed_scored_associations": [],
+    "changed_hierarchy": [],
+    "page_sha256": {
+      "0": "3853183b4da4024c6b17945ba3c0d61f3c4649981c18a4921552745d50a12290",
+      "1": "53c4a5ada3e39c7a79d286c8c4bb280e86edc248d1f182280bd23f360ec0207c",
+      "2": "23b11f556ec352e2498f4d424d8593aa1fa418428855d25276acd9607e17a727",
+      "4": "23bc4dbaccf15153c6c93710d575d7ea66197864cc015ad0aab07844954aab61"
+    }
+  }
+}

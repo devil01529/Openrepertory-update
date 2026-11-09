@@ -2,6 +2,7 @@
 Raw source responses stay in the supplied local cache, not in the public repo.
 """
 import argparse, collections, concurrent.futures, hashlib, json, time
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
@@ -109,7 +110,7 @@ def compare(book, cache, cached_only=False):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('data',type=Path);p.add_argument('--cache',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--live',nargs='*',default=[]);p.add_argument('--cached-only',action='store_true');a=p.parse_args()
-    registry=json.loads((a.data/'source_registry.json').read_text());out={'date':'2026-11-05','books':{},'retired':registry['retired_sources']}
+    registry=json.loads((a.data/'source_registry.json').read_text());out={'date':datetime.now(timezone.utc).date().isoformat(),'books':{},'retired':registry['retired_sources']}
     a.output.parent.mkdir(parents=True,exist_ok=True)
     for source in registry['bundled_sources']:
         path=a.data/source['file'];book=json.loads(path.read_text());record=structural(book);record['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
