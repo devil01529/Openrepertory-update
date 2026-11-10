@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.similora.app" android:versionCode="1" android:versionName="2.0.0">
+ <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="35"/>
+ <uses-permission android:name="android.permission.INTERNET"/>
+ <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+ <application android:label="Similora" android:icon="@drawable/similora" android:theme="@style/AppTheme" android:allowBackup="false" android:fullBackupContent="false" android:dataExtractionRules="@xml/data_extraction" android:debuggable="false" android:usesCleartextTraffic="false" android:supportsRtl="true">
+  <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize">
+   <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+  </activity>
+  <provider android:name=".UpdateFileProvider" android:authorities="org.similora.app.updates" android:exported="false" android:grantUriPermissions="true"/>
+ </application>
+</manifest>

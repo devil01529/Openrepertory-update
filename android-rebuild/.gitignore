@@ -1,0 +1,6 @@
+build/
+*.p12
+*.jks
+*.keystore
+*private*.pem
+store-password

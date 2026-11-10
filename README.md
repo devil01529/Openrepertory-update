@@ -1,6 +1,12 @@
 # Similora — Android updates
 
-Current Android release status and preserved feature/security requirements: [Similora release handoff](docs/SIMILORA_RELEASE_HANDOFF.md). New signed APK publication remains blocked by the missing original build/signing setup; latest installable version is v1.41.
+## Similora 2.0.0 — independent Android rebuild
+
+The complete new native project is in [android-rebuild](android-rebuild/README.md). It bundles the v1.41 clinical interface and data with Similora branding, encrypted local records, website account login and owner approvals. **It installs alongside the old app**, using package `org.similora.app` and a new signing identity. Keep your old app until an encrypted backup import is verified.
+
+[Download Similora 2.0.0](https://github.com/devil01529/similora-update/releases/download/v2.0.0/Similora-2.0.0.apk) · [Build, account and migration guide](android-rebuild/README.md) · [Validation and limitations](android-rebuild/TEST_REPORT.md)
+
+The following v1.x history describes the legacy app. Its latest update endpoint remains v1.41; the new app uses a separate signed update channel.
 
 
 ## Latest update: 1.41
@@ -60,7 +66,7 @@ Android asks you to allow installation and confirm the update. Existing Apper lo
 
 Read the **[step-by-step owner and developer guide](UPDATE_OWNER_GUIDE.md)**. A developer prepares the tested APK and signed `update.json`; you can upload these files to a GitHub Release from a phone or computer. Publish a normal release, set it as Latest, and retain the exact filenames.
 
-This repository hosts public APK release files, public verification material, update components and release tooling. It contains **no patient records, account passwords, publishing tokens or private signing keys**. It is not the full clinical app source or a standalone app build.
+This repository hosts public APK release files, public verification material, update components and release tooling. It contains **no patient records, account passwords, publishing tokens or private signing keys**. The `android-rebuild/` directory now provides the independent native app source and build scripts; bundled clinical assets are recovered locally from the verified v1.41 APK.
 
 ## Cost and behaviour
 

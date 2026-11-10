@@ -1,6 +1,8 @@
 # Similora Android release handoff — 9 November 2026
 
-## Release status
+> Historical handoff: the original in-place signing blocker below still applies to the legacy package. The user subsequently authorized a new independent APK with website accounts. See [the completed rebuild](../android-rebuild/README.md) and its [test report](../android-rebuild/TEST_REPORT.md) for the current implementation.
+
+## Historical release status
 
 **New signed APK: blocked, not published.** Latest installable version remains v1.41 (versionCode 42). Similora web branding, logo and available native updater text have been implemented and committed. Do not label v1.41 as a new Similora APK or publish a differently signed substitute as an in-place update.
 
