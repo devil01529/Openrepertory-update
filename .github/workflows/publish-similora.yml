@@ -1,0 +1,62 @@
+name: Publish independent Similora APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['prepared/v2.0.0/**']
+permissions:
+  contents: write
+concurrency:
+  group: publish-apk
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify signed metadata and APK certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 android-rebuild/verify_release.py
+          signer=$(find "$ANDROID_HOME/build-tools" -name apksigner | sort -V | tail -1)
+          "$signer" verify --verbose --print-certs prepared/v2.0.0/Similora-2.0.0.apk > /tmp/apk-signature.txt
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          expected=json.loads(Path('android-rebuild/release-config.json').read_text())['apkCertificateSha256']
+          assert 'certificate SHA-256 digest: '+expected in Path('/tmp/apk-signature.txt').read_text()
+          PY
+      - name: Upload and publish without changing the legacy latest endpoint
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v2.0.0 --json isDraft > /tmp/release-state.json; then
+            python3 -c 'import json; assert json.load(open("/tmp/release-state.json"))["isDraft"], "Never replace a published release"'
+          else
+            gh release create v2.0.0 --draft --latest=false --target "$GITHUB_SHA" --title 'Similora 2.0.0 — independent Android app' --notes-file prepared/v2.0.0/RELEASE_NOTES.md
+          fi
+          gh release upload v2.0.0 prepared/v2.0.0/Similora-2.0.0.apk prepared/v2.0.0/SHA256SUMS prepared/v2.0.0/similora-update.json prepared/v2.0.0/RELEASE_NOTES.md prepared/v2.0.0/TEST_REPORT.md --clobber
+          gh release edit v2.0.0 --draft=false --latest=false
+          test "$(gh api repos/$GH_REPO/releases/latest --jq .tag_name)" = v1.41
+      - name: Keep five releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 tests/test_release_retention.py
+          python3 scripts/retain_releases.py --repo "$GH_REPO" --apply --prune-prepared
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Retain prepared files for latest five releases'
+            gh auth setup-git
+            git push origin HEAD:main
+          fi
