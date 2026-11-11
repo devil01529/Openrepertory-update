@@ -1,5 +1,6 @@
 """Verify the prepared independent Similora channel using public material only."""
-import base64,hashlib,json,subprocess,tempfile
+import base64,hashlib,json,subprocess,tempfile,argparse
+parser=argparse.ArgumentParser();parser.add_argument("--prepared-only",action="store_true");args=parser.parse_args()
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 config=json.loads((ROOT/'release-config.json').read_text());folder=ROOT.parent/'prepared'/('v'+config['versionName'])
@@ -15,5 +16,5 @@ assert p['schema']==1 and p['minSdk']==23
 apk=folder/('Similora-'+config['versionName']+'.apk')
 assert p['apkUrl']==f"https://github.com/{config['repository']}/releases/download/v{config['versionName']}/{apk.name}"
 assert apk.stat().st_size==p['size'] and hashlib.sha256(apk.read_bytes()).hexdigest()==p['sha256']
-assert (ROOT/'similora-update.json').read_bytes()==(folder/'similora-update.json').read_bytes()
+if not args.prepared_only: assert (ROOT/'similora-update.json').read_bytes()==(folder/'similora-update.json').read_bytes()
 print('Verified independent Similora metadata, identity, APK hash and size')

@@ -21,14 +21,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Separate remote account screen and bundled clinical WebView; no remote native bridge. */
 public final class MainActivity extends Activity {
- static final String ORIGIN="https://open-repertory-production.up.railway.app";
+ static final String ORIGIN="https://similora.similora-167bde6ed1.workers.dev";
  static final String LOCAL="https://appassets.androidplatform.net/assets/www/";
  final Handler ui=new Handler(Looper.getMainLooper());
  final ExecutorService network=Executors.newFixedThreadPool(3);
  final AtomicBoolean checking=new AtomicBoolean();
  final ConcurrentHashMap<String,HttpsURLConnection> aiConnections=new ConcurrentHashMap<>();
  final Set<String> cancelled=Collections.synchronizedSet(new HashSet<String>());
- FrameLayout root; LinearLayout cover; TextView message; ProgressBar spinner; Button retry,account;
+ FrameLayout root; LinearLayout cover; TextView message; ProgressBar spinner; Button retry,account,updateButton;
  boolean accountLoadFailed=false;
  WebView clinical,auth; volatile boolean approved=false,foreground=false,accountMode=false,destroyed=false;
  volatile String uid=""; volatile long validUntil=0; volatile Vault vault;
@@ -44,17 +44,18 @@ public final class MainActivity extends Activity {
   message=new TextView(this);message.setTextSize(17);message.setGravity(Gravity.CENTER);message.setPadding(0,24,0,24);cover.addView(message);
   spinner=new ProgressBar(this);cover.addView(spinner);
   retry=new Button(this);retry.setText("Try again");retry.setOnClickListener(v->{if(clinical!=null&&!ready&&!accountMode)clinical.reload();verifySession();});cover.addView(retry);
-  account=new Button(this);account.setText("Account & access");account.setOnClickListener(v->showAccount());cover.addView(account);root.addView(cover,new FrameLayout.LayoutParams(-1,-1));
+  account=new Button(this);account.setText("Account & access");account.setOnClickListener(v->showAccount());cover.addView(account);updateButton=new Button(this);updateButton.setText("App updates");updateButton.setOnClickListener(v->{if(updates!=null&&canUpdate())updates.show();});cover.addView(updateButton);root.addView(cover,new FrameLayout.LayoutParams(-1,-1));
   WebView.setWebContentsDebuggingEnabled(false);CookieManager.getInstance().setAcceptCookie(true);
-  try{updates=new AppUpdates(this,new AppUpdates.Host(){public boolean allowed(){return permitted();}public void beforeInstall(Runnable action){if(permitted())action.run();}});}catch(Exception e){message.setText("Update checks unavailable. Reopen the app to retry.");}
+  try{updates=new AppUpdates(this,new AppUpdates.Host(){public boolean allowed(){return canUpdate();}public void beforeInstall(Runnable action){if(canUpdate())action.run();}});}catch(Exception e){message.setText("Update checks unavailable. Reopen the app to retry.");}
   IntentFilter filter=new IntentFilter(Intent.ACTION_SCREEN_OFF);if(Build.VERSION.SDK_INT>=33)registerReceiver(lockReceiver,filter,Context.RECEIVER_NOT_EXPORTED);else registerReceiver(lockReceiver,filter);
   mask("Checking your account…",true);ui.postDelayed(ticker,30000);
  }
+ boolean canUpdate(){return foreground&&!destroyed&&!((KeyguardManager)getSystemService(KEYGUARD_SERVICE)).isDeviceLocked();}
  boolean permitted(){return approved&&vault!=null&&SystemClock.elapsedRealtime()<validUntil&&!destroyed;}
  void requireAccess(){if(!permitted())throw new SecurityException("Approved session required");}
- void mask(String text,boolean busy){if(destroyed)return;getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);cover.setVisibility(View.VISIBLE);cover.bringToFront();message.setText(text);spinner.setVisibility(busy?View.VISIBLE:View.GONE);retry.setVisibility(busy?View.GONE:View.VISIBLE);account.setVisibility(busy?View.GONE:View.VISIBLE);}
+ void mask(String text,boolean busy){if(destroyed)return;getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);cover.setVisibility(View.VISIBLE);cover.bringToFront();message.setText(text);spinner.setVisibility(busy?View.VISIBLE:View.GONE);retry.setVisibility(busy?View.GONE:View.VISIBLE);account.setVisibility(busy?View.GONE:View.VISIBLE);updateButton.setVisibility(busy?View.GONE:View.VISIBLE);}
  void settings(WebView view){WebSettings s=view.getSettings();s.setJavaScriptEnabled(true);s.setDomStorageEnabled(true);s.setAllowFileAccess(false);s.setAllowContentAccess(false);s.setAllowFileAccessFromFileURLs(false);s.setAllowUniversalAccessFromFileURLs(false);s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);s.setMediaPlaybackRequiresUserGesture(true);if(Build.VERSION.SDK_INT>=26)s.setSafeBrowsingEnabled(true);CookieManager.getInstance().setAcceptThirdPartyCookies(view,false);}
- boolean accountUrl(Uri uri){return "https".equals(uri.getScheme())&&"open-repertory-production.up.railway.app".equals(uri.getHost())&&(uri.getPort()==-1||uri.getPort()==443)&&uri.getUserInfo()==null;}
+ boolean accountUrl(Uri uri){return "https".equals(uri.getScheme())&&Uri.parse(ORIGIN).getHost().equals(uri.getHost())&&(uri.getPort()==-1||uri.getPort()==443)&&uri.getUserInfo()==null;}
  boolean navigateAccount(Uri u){if(!accountUrl(u))return true;if(u.getPath()!=null&&u.getPath().startsWith("/workspace")){accountMode=false;mask("Opening your clinical workspace…",true);verifySession();return true;}return false;}
  void showAccount(){
   accountMode=true;approved=false;cancelPending();if(updates!=null)updates.pause();

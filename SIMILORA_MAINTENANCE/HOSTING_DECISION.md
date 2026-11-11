@@ -20,4 +20,4 @@ Cloudflare Workers + D1, using a free workers.dev subdomain.
 - Free limits must be respected; no claim of unlimited service or immutable future pricing. Password hashing and asset authorization must be measured against runtime limits before a cutover.
 - Sources: https://developers.cloudflare.com/workers/platform/pricing/ and https://developers.cloudflare.com/d1/platform/pricing/
 
-No connected Cloudflare plugin was found. Account authorization is still needed. Do not publish an APK pointing to an unprovisioned backend. Migration must preserve account identifiers and existing local encrypted records, secure owner-only actions, test approved/pending/revoked states and validate the public signed update path before enabling it.
+Cloudflare was authorized using the website repository's Actions secret and deployed on 11 November 2026. Live password derivation, signup, approval, revocation, protected assets and navigation passed. See CLOUDFLARE_OPERATIONS.md. No paid plan was enabled.

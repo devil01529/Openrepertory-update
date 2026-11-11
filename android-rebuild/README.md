@@ -1,10 +1,10 @@
 # Similora Android — new independent build
 
-This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.0**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
+This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.1**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
 
 ## Accounts and privacy
 
-Use the **Similora website account**, not the former APK's separate Apper credentials. The existing Railway account service performs authentication and owner approval. Account & access opens inside a separate WebView with no JavaScript storage bridge. Owners see the same account approval/removal controls as the website. Website approval now grants access to this rebuilt APK as requested.
+Use the **Similora website account**, not the former APK's separate Apper credentials. The Cloudflare Workers/D1 service performs authentication and owner approval for both website and APK. Account & access opens inside a separate WebView with no JavaScript storage bridge. Owners see the same account approval/removal controls as the website. Website approval now grants access to this rebuilt APK as requested.
 
 Clinical records, patients, notes and Gemini keys stay in account-scoped Android Keystore/AES-GCM encrypted local storage. They are not uploaded to the account service. The app requires a connection to verify approval at startup/resume and periodically while open. A remembered website session avoids daily password entry; choose **Stay signed in for 30 days** on your private phone. If connection checking fails, access pauses rather than assuming approval.
 
@@ -50,4 +50,6 @@ The test build accepts `SIMILORA_ANDROID_TOOLS` and `SIMILORA_SIGNING_DIR`; set 
 
 ## Publishing a future version
 
-Increment the Android manifest version code and name, output filename in `build.py`, and `release-config.json`. Build and run the applicable checks. Sign `similora-update.json` with `sign_update.py --apk … --signing … --notes …` using the **same** private metadata key. Upload the signed APK and checksum to its versioned GitHub release, then publish the matching signed metadata on main. Preserve `--latest=false` while the old app's latest-release endpoint is still supported. Do not change the old root `update.json` or `release-config.json` to the new package.
+Increment the Android manifest version code and name, and `release-config.json`. Build and run the applicable checks. Sign `similora-update.json` with `sign_update.py --apk … --signing … --notes …` using the **same** private metadata key. Upload the signed APK and checksum to its versioned GitHub release, then publish the matching signed metadata on main. Preserve `--latest=false` while the old app's latest-release endpoint is still supported. Do not change the old root `update.json` or `release-config.json` to the new package.
+
+For the hosting migration and owner controls, see [Cloudflare operations](../SIMILORA_MAINTENANCE/CLOUDFLARE_OPERATIONS.md). Updating 2.0.0 to 2.0.1 keeps the package, signer and encrypted vault. Sign in once at the new hosting address.

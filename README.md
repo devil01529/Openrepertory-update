@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.1 — one approval service for website and APK
+
+[Download Similora 2.0.1](https://github.com/devil01529/similora-update/releases/download/v2.0.1/Similora-2.0.1.apk) · [Website](https://similora.similora-167bde6ed1.workers.dev) · [Owner and recovery guide](SIMILORA_MAINTENANCE/CLOUDFLARE_OPERATIONS.md) · [Validation](prepared/v2.0.1/TEST_REPORT.md)
+
+Updates 2.0.0 in place with the same signing key and encrypted storage. Sign in once at the new hosting address using your existing Similora website account. Owners manage website and APK access in Menu → Account & access. All bundled clinical assets are unchanged. Cloudflare uses free-tier quotas; no paid plan was enabled.
+
 ## Similora 2.0.0 — independent Android rebuild
 
 The complete new native project is in [android-rebuild](android-rebuild/README.md). It bundles the v1.41 clinical interface and data with Similora branding, encrypted local records, website account login and owner approvals. **It installs alongside the old app**, using package `org.similora.app` and a new signing identity. Keep your old app until an encrypted backup import is verified.

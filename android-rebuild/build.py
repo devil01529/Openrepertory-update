@@ -21,7 +21,7 @@ with zipfile.ZipFile(unsigned,'a',compression=zipfile.ZIP_DEFLATED,compresslevel
    z.write(f,'assets/'+str(f.relative_to(a.assets)))
  z.write(dex/'classes.dex','classes.dex')
 run([bt/'zipalign','-f','4',unsigned,build/'aligned.apk'])
-out=build/'Similora-2.0.0.apk'
+out=build/('Similora-'+json.loads((ROOT/'release-config.json').read_text())['versionName']+'.apk')
 run(['java','-jar',bt/'lib/apksigner.jar','sign','--ks',a.signing/'similora-release.p12','--ks-key-alias','similora','--ks-pass','file:'+str(a.signing/'store-password'),'--out',out,build/'aligned.apk'])
 verification=subprocess.check_output(['java','-jar',str(bt/'lib/apksigner.jar'),'verify','--verbose','--print-certs',str(out)],text=True)
 print(verification)
