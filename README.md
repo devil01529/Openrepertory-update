@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.6 — Your AI Smart Search
+
+[Download 2.0.6](https://github.com/devil01529/similora-update/releases/download/v2.0.6/Similora-2.0.6.apk) · [Setup and implementation plan](SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md) · [Verification](prepared/v2.0.6/TEST_REPORT.md)
+
+Connect a personal Gemini or OpenAI API key/model in Menu → Your AI. Review the text before sending, then choose from actual local rubric candidates. Encrypted key storage, cancellation, bounded results and offline fallback are retained. Real provider access is verified using Test saved connection with your own account.
+
 ## Similora 2.0.5 — rounded-square launcher and access improvements
 
 [Download 2.0.5](https://github.com/devil01529/similora-update/releases/download/v2.0.5/Similora-2.0.5.apk) · [Implemented plan](SIMILORA_MAINTENANCE/IMPROVEMENT_PLAN_2.0.5.md) · [Verification](prepared/v2.0.5/TEST_REPORT.md)

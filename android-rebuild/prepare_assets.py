@@ -14,6 +14,7 @@ for source in web.rglob('*before-similora*'):
 shutil.copyfile(ROOT/'similora-mobile.js',web/'js/similora-mobile.js')
 index=web/'index.html';index.write_text(index.read_text().replace('<script src="js/start.js"></script>','<script src="js/similora-mobile.js"></script>\n<script src="js/start.js"></script>'))
 shutil.copyfile(ROOT/'res/drawable/similora.png',web/'img/brandmark.png')
+subprocess.run([sys.executable,str(ROOT/'ai_overlay.py'),str(web)],check=True)
 recovered=json.loads((destination/'RECOVERY.json').read_text())['files'];count=0
 for path,digest in recovered.items():
  if path.startswith('assets/www/data/'):

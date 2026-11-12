@@ -1,6 +1,6 @@
 # Similora Android — new independent build
 
-This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.5**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
+This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.6**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
 
 ## Accounts and privacy
 
@@ -55,3 +55,5 @@ Increment the Android manifest version code and name, and `release-config.json`.
 For the hosting migration and owner controls, see [Cloudflare operations](../SIMILORA_MAINTENANCE/CLOUDFLARE_OPERATIONS.md). Updating 2.0.0 to 2.0.1 keeps the package, signer and encrypted vault. Sign in once at the new hosting address.
 
 Startup 2.0.3 plays the full intro once before revealing ready content. A slower workspace shows loading controls after completion. The footage edges blend into the screen background; account navigation does not replay the intro.
+
+Your AI setup, security boundaries, supported providers and test limits are documented in [Your AI guide](../SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md).
