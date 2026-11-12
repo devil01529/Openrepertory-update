@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.5 — rounded-square launcher and access improvements
+
+[Download 2.0.5](https://github.com/devil01529/similora-update/releases/download/v2.0.5/Similora-2.0.5.apk) · [Implemented plan](SIMILORA_MAINTENANCE/IMPROVEMENT_PLAN_2.0.5.md) · [Verification](prepared/v2.0.5/TEST_REPORT.md)
+
+Rounded-square launcher artwork with Android adaptive-icon support, matching website icons, password visibility controls and connection retry. Existing glass styling, fresh-launch intro and clinical data are retained.
+
 ## Similora 2.0.4 — clean emblem and rounded glass access
 
 [Download 2.0.4](https://github.com/devil01529/similora-update/releases/download/v2.0.4/Similora-2.0.4.apk) · [Verification](prepared/v2.0.4/TEST_REPORT.md)
