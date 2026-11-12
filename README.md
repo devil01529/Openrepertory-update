@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.2 — animated startup
+
+[Download 2.0.2](https://github.com/devil01529/similora-update/releases/download/v2.0.2/Similora-2.0.2.apk) · [Verification](prepared/v2.0.2/TEST_REPORT.md)
+
+The supplied Similora animation plays silently during loading, with a cropped watermark area, static fallback and background pause. Matching website artwork is deployed. Install as an update; clinical data and approval controls are unchanged.
+
 ## Similora 2.0.1 — one approval service for website and APK
 
 [Download Similora 2.0.1](https://github.com/devil01529/similora-update/releases/download/v2.0.1/Similora-2.0.1.apk) · [Website](https://similora.similora-167bde6ed1.workers.dev) · [Owner and recovery guide](SIMILORA_MAINTENANCE/CLOUDFLARE_OPERATIONS.md) · [Validation](prepared/v2.0.1/TEST_REPORT.md)

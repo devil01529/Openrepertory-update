@@ -1,6 +1,6 @@
 # Similora Android — new independent build
 
-This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.1**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
+This directory contains the complete native source and build scripts for **org.similora.app**, version **2.0.2**. It is a new signing lineage and installs alongside `com.openrepertory.app.dev`; it does not overwrite or automatically decrypt the old app's records.
 
 ## Accounts and privacy
 

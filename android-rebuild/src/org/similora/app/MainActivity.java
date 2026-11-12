@@ -28,7 +28,7 @@ public final class MainActivity extends Activity {
  final AtomicBoolean checking=new AtomicBoolean();
  final ConcurrentHashMap<String,HttpsURLConnection> aiConnections=new ConcurrentHashMap<>();
  final Set<String> cancelled=Collections.synchronizedSet(new HashSet<String>());
- FrameLayout root; LinearLayout cover; TextView message; ProgressBar spinner; Button retry,account,updateButton;
+ FrameLayout root; StartupScene cover; TextView message; ProgressBar spinner; Button retry,account,updateButton;
  boolean accountLoadFailed=false;
  WebView clinical,auth; volatile boolean approved=false,foreground=false,accountMode=false,destroyed=false;
  volatile String uid=""; volatile long validUntil=0; volatile Vault vault;
@@ -39,12 +39,12 @@ public final class MainActivity extends Activity {
  @Override public void onCreate(Bundle state){
   super.onCreate(state);getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
   root=new FrameLayout(this);root.setFitsSystemWindows(true);root.setBackgroundColor(Color.rgb(8,34,46));setContentView(root);
-  cover=new LinearLayout(this);cover.setOrientation(LinearLayout.VERTICAL);cover.setGravity(Gravity.CENTER);cover.setPadding(32,32,32,32);cover.setBackgroundColor(Color.rgb(238,246,248));
-  TextView title=new TextView(this);title.setText("Similora");title.setTextSize(30);title.setTextColor(Color.rgb(8,54,67));cover.addView(title);
-  message=new TextView(this);message.setTextSize(17);message.setGravity(Gravity.CENTER);message.setPadding(0,24,0,24);cover.addView(message);
-  spinner=new ProgressBar(this);cover.addView(spinner);
-  retry=new Button(this);retry.setText("Try again");retry.setOnClickListener(v->{if(clinical!=null&&!ready&&!accountMode)clinical.reload();verifySession();});cover.addView(retry);
-  account=new Button(this);account.setText("Account & access");account.setOnClickListener(v->showAccount());cover.addView(account);updateButton=new Button(this);updateButton.setText("App updates");updateButton.setOnClickListener(v->{if(updates!=null&&canUpdate())updates.show();});cover.addView(updateButton);root.addView(cover,new FrameLayout.LayoutParams(-1,-1));
+  cover=new StartupScene(this);
+  message=new TextView(this);message.setTextSize(16);message.setTextColor(Color.rgb(233,245,245));message.setGravity(Gravity.CENTER);message.setPadding(0,8,0,8);message.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);cover.controls.addView(message);
+  spinner=new ProgressBar(this);cover.controls.addView(spinner,new LinearLayout.LayoutParams(36,36));
+  retry=new Button(this);retry.setText("Try again");retry.setOnClickListener(v->{if(clinical!=null&&!ready&&!accountMode)clinical.reload();verifySession();});cover.controls.addView(retry);
+  account=new Button(this);account.setText("Account & access");account.setOnClickListener(v->showAccount());cover.controls.addView(account);
+  updateButton=new Button(this);updateButton.setText("App updates");updateButton.setOnClickListener(v->{if(updates!=null&&canUpdate())updates.show();});cover.controls.addView(updateButton);root.addView(cover,new FrameLayout.LayoutParams(-1,-1));
   WebView.setWebContentsDebuggingEnabled(false);CookieManager.getInstance().setAcceptCookie(true);
   try{updates=new AppUpdates(this,new AppUpdates.Host(){public boolean allowed(){return canUpdate();}public void beforeInstall(Runnable action){if(canUpdate())action.run();}});}catch(Exception e){message.setText("Update checks unavailable. Reopen the app to retry.");}
   IntentFilter filter=new IntentFilter(Intent.ACTION_SCREEN_OFF);if(Build.VERSION.SDK_INT>=33)registerReceiver(lockReceiver,filter,Context.RECEIVER_NOT_EXPORTED);else registerReceiver(lockReceiver,filter);
@@ -53,7 +53,7 @@ public final class MainActivity extends Activity {
  boolean canUpdate(){return foreground&&!destroyed&&!((KeyguardManager)getSystemService(KEYGUARD_SERVICE)).isDeviceLocked();}
  boolean permitted(){return approved&&vault!=null&&SystemClock.elapsedRealtime()<validUntil&&!destroyed;}
  void requireAccess(){if(!permitted())throw new SecurityException("Approved session required");}
- void mask(String text,boolean busy){if(destroyed)return;getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);cover.setVisibility(View.VISIBLE);cover.bringToFront();message.setText(text);spinner.setVisibility(busy?View.VISIBLE:View.GONE);retry.setVisibility(busy?View.GONE:View.VISIBLE);account.setVisibility(busy?View.GONE:View.VISIBLE);updateButton.setVisibility(busy?View.GONE:View.VISIBLE);}
+ void mask(String text,boolean busy){if(destroyed)return;getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);cover.setVisibility(View.VISIBLE);cover.bringToFront();message.setText(text);cover.active(busy&&foreground);spinner.setVisibility(busy?View.VISIBLE:View.GONE);retry.setVisibility(busy?View.GONE:View.VISIBLE);account.setVisibility(busy?View.GONE:View.VISIBLE);updateButton.setVisibility(busy?View.GONE:View.VISIBLE);}
  void settings(WebView view){WebSettings s=view.getSettings();s.setJavaScriptEnabled(true);s.setDomStorageEnabled(true);s.setAllowFileAccess(false);s.setAllowContentAccess(false);s.setAllowFileAccessFromFileURLs(false);s.setAllowUniversalAccessFromFileURLs(false);s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);s.setMediaPlaybackRequiresUserGesture(true);if(Build.VERSION.SDK_INT>=26)s.setSafeBrowsingEnabled(true);CookieManager.getInstance().setAcceptThirdPartyCookies(view,false);}
  boolean accountUrl(Uri uri){return "https".equals(uri.getScheme())&&Uri.parse(ORIGIN).getHost().equals(uri.getHost())&&(uri.getPort()==-1||uri.getPort()==443)&&uri.getUserInfo()==null;}
  boolean navigateAccount(Uri u){if(!accountUrl(u))return true;if(u.getPath()!=null&&u.getPath().startsWith("/workspace")){accountMode=false;mask("Opening your clinical workspace…",true);verifySession();return true;}return false;}
@@ -65,7 +65,7 @@ public final class MainActivity extends Activity {
    @Override public WebResourceResponse shouldInterceptRequest(WebView v,WebResourceRequest r){return accountUrl(r.getUrl())?null:denied();}
    @Override public void onReceivedSslError(WebView v,SslErrorHandler h,SslError e){accountLoadFailed=true;h.cancel();mask("Secure connection could not be verified. Check your phone’s date and connection.",false);}
    @Override public void onReceivedError(WebView v,WebResourceRequest r,WebResourceError e){if(r.isForMainFrame()){accountLoadFailed=true;mask("Account page could not load. Check your connection and try again.",false);}}
-   @Override public void onPageFinished(WebView v,String url){CookieManager.getInstance().flush();if(accountMode&&!accountLoadFailed&&foreground){cover.setVisibility(View.GONE);auth.bringToFront();getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);}}
+   @Override public void onPageFinished(WebView v,String url){CookieManager.getInstance().flush();if(accountMode&&!accountLoadFailed&&foreground){cover.active(false);cover.setVisibility(View.GONE);auth.bringToFront();getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);}}
   });}
   if(clinical!=null)clinical.setVisibility(View.GONE);auth.setVisibility(View.VISIBLE);auth.bringToFront();mask("Opening account & access…",true);accountLoadFailed=false;auth.loadUrl(ORIGIN+"/account");
  }
@@ -101,7 +101,7 @@ public final class MainActivity extends Activity {
   clinical.setWebChromeClient(new WebChromeClient(){@Override public boolean onShowFileChooser(WebView w,ValueCallback<Uri[]> callback,FileChooserParams params){if(!permitted()){callback.onReceiveValue(null);return true;}if(chooser!=null)chooser.onReceiveValue(null);chooser=callback;try{Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("*/*");startActivityForResult(i,92);}catch(Exception e){chooser.onReceiveValue(null);chooser=null;}return true;}});
   clinical.loadUrl(LOCAL+"index.html");ui.postDelayed(()->{if(!ready&&!destroyed&&!accountMode)mask("The workspace is taking longer than expected. Check your connection and retry, or reopen Similora.",false);},45000);
  }
- void reveal(){if(!permitted()||!foreground||accountMode)return;cover.setVisibility(View.GONE);clinical.setVisibility(View.VISIBLE);clinical.bringToFront();if(updates!=null)updates.checkAutomatically();if(getPreferences(0).getBoolean("screenshots",true))getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);}
+ void reveal(){if(!permitted()||!foreground||accountMode)return;cover.active(false);cover.setVisibility(View.GONE);clinical.setVisibility(View.VISIBLE);clinical.bringToFront();if(updates!=null)updates.checkAutomatically();if(getPreferences(0).getBoolean("screenshots",true))getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);}
  void complete(String id,String value,String error,String owner){ui.post(()->{if(clinical==null||!owner.equals(uid)||cancelled.remove(id))return;clinical.evaluateJavascript("window.ORNativeComplete&&ORNativeComplete("+JSONObject.quote(id)+","+(value==null?"null":JSONObject.quote(value))+","+(error==null?"null":JSONObject.quote(error))+")",null);});}
  void cancelPending(){for(HttpsURLConnection c:aiConnections.values())c.disconnect();aiConnections.clear();if(chooser!=null){chooser.onReceiveValue(null);chooser=null;}exportId=null;exportText=null;exportName=null;exportUid=null;}
  public final class SecureBridge {
@@ -138,7 +138,7 @@ public final class MainActivity extends Activity {
  void launchExport(){try{startActivityForResult(new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("application/octet-stream").putExtra(Intent.EXTRA_TITLE,exportName),91);}catch(Exception e){complete(exportId,null,"Document picker unavailable",uid);cancelPending();}}
  @Override protected void onActivityResult(int request,int result,Intent data){super.onActivityResult(request,result,data);if(request==92){if(chooser!=null){chooser.onReceiveValue(result==RESULT_OK&&data!=null?new Uri[]{data.getData()}:null);chooser=null;}return;}if(request==91&&exportId!=null){String id=exportId,owner=exportUid,content=exportText;exportId=null;if(result!=RESULT_OK||data==null){complete(id,null,"Export cancelled; you can resume from Backup & restore",owner);return;}Uri uri=data.getData();network.execute(()->{try{if(!owner.equals(uid))throw new SecurityException();try(OutputStream out=getContentResolver().openOutputStream(uri,"wt")){if(out==null)throw new IOException();out.write(content.getBytes(StandardCharsets.UTF_8));}ui.post(()->{if(owner.equals(exportUid)){try{vault.batch(new JSONObject().put("similora.pending_export",JSONObject.NULL).toString());}catch(Exception ignored){}exportText=null;exportName=null;exportUid=null;}});complete(id,"saved",null,owner);}catch(Exception e){complete(id,null,"File could not be saved. Retry the export.",owner);}});}}
  @Override protected void onResume(){super.onResume();foreground=true;if(!accountMode){mask("Checking access…",true);verifySession();}else if(auth!=null){auth.onResume();}if(clinical!=null)clinical.onResume();}
- @Override protected void onPause(){foreground=false;getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);if(!accountMode)mask("Similora is paused",false);if(updates!=null)updates.pause();CookieManager.getInstance().flush();super.onPause();}
+ @Override protected void onPause(){foreground=false;cover.active(false);getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);if(!accountMode)mask("Similora is paused",false);if(updates!=null)updates.pause();CookieManager.getInstance().flush();super.onPause();}
  @Override public void onBackPressed(){if(accountMode){accountMode=false;mask("Returning to your workspace…",true);verifySession();return;}if(clinical!=null&&permitted()){clinical.evaluateJavascript("window.OR&&OR.clinic&&OR.clinic.back?OR.clinic.back():OR.showPage('dashboard')",null);}else super.onBackPressed();}
- @Override protected void onDestroy(){destroyed=true;approved=false;ui.removeCallbacksAndMessages(null);try{unregisterReceiver(lockReceiver);}catch(Exception ignored){}if(updates!=null)updates.dispose();network.shutdownNow();cancelPending();if(clinical!=null){clinical.removeJavascriptInterface("openrepertorySecure");clinical.removeJavascriptInterface("openrepertoryNative");clinical.destroy();}if(auth!=null)auth.destroy();super.onDestroy();}
+ @Override protected void onDestroy(){destroyed=true;cover.dispose();approved=false;ui.removeCallbacksAndMessages(null);try{unregisterReceiver(lockReceiver);}catch(Exception ignored){}if(updates!=null)updates.dispose();network.shutdownNow();cancelPending();if(clinical!=null){clinical.removeJavascriptInterface("openrepertorySecure");clinical.removeJavascriptInterface("openrepertoryNative");clinical.destroy();}if(auth!=null)auth.destroy();super.onDestroy();}
 }
