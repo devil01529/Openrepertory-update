@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.3 — complete seamless intro
+
+[Download 2.0.3](https://github.com/devil01529/similora-update/releases/download/v2.0.3/Similora-2.0.3.apk) · [Verification](prepared/v2.0.3/TEST_REPORT.md)
+
+The animation blends into the screen and runs once to the end. Ready content opens afterward; slower initialization shows a separate loading screen. Install over your existing Similora 2.x app.
+
 ## Similora 2.0.2 — animated startup
 
 [Download 2.0.2](https://github.com/devil01529/similora-update/releases/download/v2.0.2/Similora-2.0.2.apk) · [Verification](prepared/v2.0.2/TEST_REPORT.md)

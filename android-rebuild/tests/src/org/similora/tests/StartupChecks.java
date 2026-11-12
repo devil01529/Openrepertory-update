@@ -16,7 +16,8 @@ public final class StartupChecks extends Instrumentation{
   runOnMainSync(()->{try{active.invoke(scene[0],false);}catch(Exception e){throw new RuntimeException(e);}});Thread.sleep(500);int before=video.getCurrentPosition();Thread.sleep(1200);if(Math.abs(video.getCurrentPosition()-before)>100)throw new AssertionError("Video kept running after pause");
   if(((View)field(cls,"poster").get(scene[0])).getVisibility()!=View.VISIBLE)throw new AssertionError("Paused fallback hidden");
   runOnMainSync(()->{try{active.invoke(scene[0],true);}catch(Exception e){throw new RuntimeException(e);}});Thread.sleep(1600);if(video.getCurrentPosition()==before)throw new AssertionError("Video failed to resume");
+  Thread.sleep(12000);if(!field(cls,"finished").getBoolean(scene[0]))throw new AssertionError("Intro did not finish");if(((View)field(cls,"controls").get(scene[0])).getVisibility()!=View.VISIBLE)throw new AssertionError("Loading controls did not follow intro");
   Method dispose=cls.getDeclaredMethod("dispose");dispose.setAccessible(true);runOnMainSync(()->{try{dispose.invoke(scene[0]);}catch(Exception e){throw new RuntimeException(e);}});
-  result.putString("result","PASS bundled startup video playback, pause, static fallback, resume and disposal");finish(Activity.RESULT_OK,result);
+  result.putString("result","PASS bundled startup video playback, pause, static fallback, resume, complete one-shot playback, loading controls and disposal");finish(Activity.RESULT_OK,result);
  }catch(Throwable e){result.putString("result","FAIL "+e);finish(Activity.RESULT_CANCELED,result);}finally{if(app!=null){Activity a=app;runOnMainSync(a::finish);}}}
 }
