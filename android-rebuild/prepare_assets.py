@@ -13,6 +13,7 @@ for source in web.rglob('*before-similora*'):
  target=destination/'branding-backup'/source.relative_to(web);target.parent.mkdir(parents=True,exist_ok=True);shutil.move(source,target)
 shutil.copyfile(ROOT/'similora-mobile.js',web/'js/similora-mobile.js')
 index=web/'index.html';index.write_text(index.read_text().replace('<script src="js/start.js"></script>','<script src="js/similora-mobile.js"></script>\n<script src="js/start.js"></script>'))
+shutil.copyfile(ROOT/'res/drawable/similora.png',web/'img/brandmark.png')
 recovered=json.loads((destination/'RECOVERY.json').read_text())['files'];count=0
 for path,digest in recovered.items():
  if path.startswith('assets/www/data/'):

@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.4 — clean emblem and rounded glass access
+
+[Download 2.0.4](https://github.com/devil01529/similora-update/releases/download/v2.0.4/Similora-2.0.4.apk) · [Verification](prepared/v2.0.4/TEST_REPORT.md)
+
+Transparent logo-only intro with no particle video or rectangular panel. Matching launcher icon, rounded glass login, and no replay after returning from the background. Fresh launches play the complete intro before opening ready content.
+
 ## Similora 2.0.3 — complete seamless intro
 
 [Download 2.0.3](https://github.com/devil01529/similora-update/releases/download/v2.0.3/Similora-2.0.3.apk) · [Verification](prepared/v2.0.3/TEST_REPORT.md)

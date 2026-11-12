@@ -2,7 +2,7 @@
 
 ## Preserve the identity
 
-Keep `org.similora.app`, the APK signing key and the update metadata signing key. Increment versionCode above every published build; after 2.0.3/code 4, use at least code 5. Do not generate replacement keys. The old `com.openrepertory.app.dev` lineage cannot be upgraded with the new key.
+Keep `org.similora.app`, the APK signing key and the update metadata signing key. Increment versionCode above every published build; after 2.0.4/code 5, use at least code 6. Do not generate replacement keys. The old `com.openrepertory.app.dev` lineage cannot be upgraded with the new key.
 
 Native source: `android-rebuild/src/org/similora/app/`. Manifest/resources/build scripts/tests: `android-rebuild/`. Complete instructions: [Android build guide](../android-rebuild/README.md). Clinical assets are recovered from hash-pinned prepared v1.41; keep that baseline privately before release retention eventually removes it. Do not overwrite book data, grades or original required notices during a hosting change.
 
@@ -19,7 +19,7 @@ Loss of the APK signing key prevents compatible updates. Loss of the metadata si
 3. Increase manifest/config version code and name; keep package and authority unchanged. Ensure build output filename follows the version.
 4. Build, verify APK signature, run applicable native and browser regressions. Confirm approval/revocation, account isolation, encrypted persistence, backups, eight book workflows, Materia Medica and updater validation.
 5. Sign new metadata using `android-rebuild/sign_update.py`. Upload the APK and checksum before activating the matching main-branch manifest.
-6. `publish-similora.yml` is currently pinned to v2.0.3. Adapt its tag/paths for a future version, keep signature/hash verification, and never overwrite published assets. Its existing workflow succeeded for v2.0.0. Direct connector uploads failed; GitHub Actions upload works.
+6. `publish-similora.yml` is currently pinned to v2.0.4. Adapt its tag/paths for a future version, keep signature/hash verification, and never overwrite published assets. Its existing workflow succeeded for v2.0.0. Direct connector uploads failed; GitHub Actions upload works.
 7. Preserve `--latest=false` while the legacy v1.41 endpoint is needed. Keep the two signing/update channels distinct. Retention keeps five published versions and refuses to delete the protected Latest endpoint. Revisit this policy before the legacy version would fall outside those five; never silently break existing users.
 8. Verify the publicly downloaded bytes and manifest, update ANDROID_IDENTITY.json and the release test report.
 
@@ -34,3 +34,5 @@ Use the same secured owner panel inside the APK for both website and app approva
 ## Deployment automation target
 
 Cloudflare account authorization is a one-time owner action. The planned workflow uses protected GitHub deployment credentials, Workers + D1 on Free and a free workers.dev address. Routine source pushes will run tests and deploy without manual setting copy/paste. The workflow and account migration are deployed; see CLOUDFLARE_OPERATIONS.md. No paid upgrade or domain purchase was performed.
+
+Retention reserves one of the five slots for the active legacy Latest endpoint (v1.41), and keeps the newest four other releases once that endpoint is older than the latest five. This avoids breaking the still-signed legacy update URL while capping release count at five. Deletions of unprotected versions remain oldest first.

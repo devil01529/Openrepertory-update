@@ -1,4 +1,4 @@
-"""Keep the five newest published app releases; delete older ones oldest first.
+"""Keep five published app releases, reserving a slot for the active compatibility endpoint.
 
 Dry-run by default. Drafts and unrelated tags are not release history.
 The latest update endpoint is protected. Git history is never rewritten.
@@ -15,9 +15,13 @@ def plan(releases, latest, keep=5):
     # Missing or malformed publication dates must stop cleanup, not guess ordering.
     published.sort(key=lambda r:(datetime.fromisoformat(r['published_at'].replace('Z','+00:00')),r['id']))
     retained=published[-keep:]
+    if latest not in {r['tag_name'] for r in published}:
+        raise ValueError('Latest update endpoint is missing; refusing deletion')
     if latest not in {r['tag_name'] for r in retained}:
-        raise ValueError('Latest update endpoint is not among the newest five; refusing deletion')
-    return published[:-keep],retained
+        protected=next(r for r in published if r['tag_name']==latest)
+        retained=[protected]+[r for r in published if r['tag_name']!=latest][-(keep-1):]
+    tags={r['tag_name'] for r in retained}
+    return [r for r in published if r['tag_name'] not in tags],retained
 
 def prepared_to_prune(paths, active, retained, obsolete):
     oldest_version=min(tuple(map(int,r['tag_name'][1:].split('.'))) for r in retained)

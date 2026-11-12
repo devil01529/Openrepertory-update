@@ -10,7 +10,7 @@ class RetentionTests(unittest.TestCase):
   self.rows.append(dict(id=12,tag_name='v1.12',draft=True,published_at=None));self.assertEqual(len(m.plan(self.rows,'v1.11')[1]),5)
  def test_short_history(self):self.assertEqual(m.plan(self.rows[:3],'v1.3')[0],[])
  def test_protect_latest(self):
-  with self.assertRaises(ValueError):m.plan(self.rows,'v1.2')
+  old,kept=m.plan(self.rows,'v1.2');self.assertEqual(len(kept),5);self.assertIn('v1.2',[r['tag_name'] for r in kept]);self.assertEqual([r['id'] for r in old],[1,3,4,5,6,7])
  def test_no_duplicate_tags(self):
   with self.assertRaises(ValueError):m.plan(self.rows+[self.rows[0]],'v1.11')
  def test_bad_date_stops_cleanup(self):
