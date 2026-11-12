@@ -28,3 +28,13 @@ Keys are local to this phone/account and are not included in clinical backups. R
 Automated tests use synthetic fixtures and no real API key. The in-app Test saved connection verifies the user's actual provider/model/key. No claim is made that every model or account region has been tested live.
 
 After restoring a clinical backup, reconnect your AI if its local settings were cleared. Developer browser verification: `python3 tests/browser/your_ai.py --assets /private/similora-assets/assets/www`. Native fixture tests are in the separate QA APK, never in the release.
+
+## OpenAI 429 troubleshooting (2.0.8)
+
+HTTP 429 is ambiguous by itself. OpenAI uses it for temporary rate limits and for insufficient API quota. The app now reads the bounded error response and recognizes insufficient_quota, billing_hard_limit_reached and usage_limit_reached without displaying raw provider text.
+
+- Quota/billing message: check https://platform.openai.com/settings/organization/billing/overview and the API project's usage/limits. A ChatGPT subscription does not include API credit. Replacing the same project's valid key or repeatedly retrying does not add credit.
+- Temporary request limit: wait for the provider's rate window, then test once. Check https://platform.openai.com/settings/organization/limits . Shared project usage can affect the limit.
+- Invalid key/permissions is a different error. Do not publish your key or send it in chat.
+
+The app cannot increase provider limits or change API billing. Offline phrase search remains available. Your actual account's condition is determined by the provider's response; synthetic tests cannot inspect its balance.

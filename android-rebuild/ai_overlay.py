@@ -12,6 +12,7 @@ if 'id="yourAiSetup"' not in s:
  s=s.replace('.map(stemTok).filter', '.slice(0, 4).map(stemTok).filter')
  s=s.replace('<h3>Describe it the way the patient did</h3>','<h3>Describe it the way the patient did</h3><button type="button" id="yourAiSetup" class="btn">Your AI settings</button>')
  s=s.replace('    if (e.target.closest("#aiIdleClose"))', '    if (e.target.closest("#yourAiSetup")) return OR.openOnlineAi();\n    if (e.target.closest("#aiIdleClose"))')
+ s=s.replace('else if (e && e.code === "rate_limited")', 'else if (e && (e.code === "quota_exhausted" || e.code === "billing_required")) mine.note = "Your API quota is exhausted or API billing is required. Check the provider account; offline search continued locally."; else if (e && e.code === "rate_limited")')
  s=s.replace('Gemini is not connected','Your AI is not connected').replace('Gemini rejected this API key','The provider rejected this API key').replace('This Gemini model','This AI model').replace('Gemini is rate-limited','The AI provider is rate-limited').replace('Gemini network request failed','The AI request failed')
 p.write_text(s);shutil.copyfile(root/'your-ai.js',web/'js/your-ai.js')
 p=web/'index.html';s=p.read_text().replace('<b>Online AI</b>','<b>Your AI</b>').replace('Connect your Gemini API key','Connect your own AI key');s=s.replace('<script src="js/start.js"></script>','<script src="js/your-ai.js"></script>\n<script src="js/start.js"></script>') if 'js/your-ai.js' not in s else s;p.write_text(s)

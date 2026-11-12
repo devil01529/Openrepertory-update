@@ -1,4 +1,4 @@
-For the current release see [2.0.7 verification](../prepared/v2.0.7/TEST_REPORT.md). The report below records the original 2.0.0 baseline.
+For the current release see [2.0.8 verification](../prepared/v2.0.8/TEST_REPORT.md). The report below records the original 2.0.0 baseline.
 
 # Similora 2.0.0 validation
 

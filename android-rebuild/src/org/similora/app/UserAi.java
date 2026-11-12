@@ -24,5 +24,16 @@ public final class UserAi {
   else{JSONArray parts=response.getJSONArray("candidates").getJSONObject(0).getJSONObject("content").getJSONArray("parts");StringBuilder b=new StringBuilder();for(int i=0;i<parts.length();i++)b.append(parts.getJSONObject(i).optString("text"));text=b.toString();}
   if(text.length()>65536)throw new IllegalArgumentException("AI response too large");new JSONObject(text);return text;
  }
+ public static String error(int status,String raw){
+  if(status==402)return "billing_required";
+  if(status==429)try{JSONObject e=new JSONObject(raw).optJSONObject("error");if(e!=null){String c=e.optString("code"),t=e.optString("type");for(String v:new String[]{c,t})if(v.equals("insufficient_quota")||v.equals("billing_hard_limit_reached")||v.equals("usage_limit_reached"))return "quota_exhausted";}}catch(Exception ignored){}
+  return error(status);
+ }
+ public static String detail(String code){
+  if(code.equals("quota_exhausted")||code.equals("billing_required"))return "Your provider API account has no usable quota or needs API billing. For OpenAI, check platform.openai.com API billing, credit balance and project limits. ChatGPT subscriptions do not include API credit. Repeated retries or replacing a valid key will not add quota. Offline search remains available.";
+  if(code.equals("rate_limited"))return "The provider temporarily limited requests. Wait before trying again and check your API rate limits. Offline search remains available.";
+  if(code.equals("invalid_key"))return "The provider rejected this API key or its permissions. Check the key and project access. Offline search remains available.";
+  return "AI request could not complete. Check the provider key and connection. The app selects the model automatically. Offline search remains available.";
+ }
  public static String error(int status){return status==401||status==403?"invalid_key":status==429?"rate_limited":status==404?"model_unavailable":"provider_error";}
 }

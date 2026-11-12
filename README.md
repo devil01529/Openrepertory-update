@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.8 — clear API quota messages
+
+[Download 2.0.8](https://github.com/devil01529/similora-update/releases/download/v2.0.8/Similora-2.0.8.apk) · [Troubleshooting](SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md) · [Verification](prepared/v2.0.8/TEST_REPORT.md)
+
+Distinguishes OpenAI API quota/billing errors from temporary rate limits and keeps offline search available. ChatGPT subscriptions and API credit are separate. The app cannot change provider limits.
+
 ## Similora 2.0.7 — automatic AI model selection
 
 [Download 2.0.7](https://github.com/devil01529/similora-update/releases/download/v2.0.7/Similora-2.0.7.apk) · [Setup guide](SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md) · [Verification](prepared/v2.0.7/TEST_REPORT.md)
