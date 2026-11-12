@@ -1,5 +1,11 @@
 # Similora — Android updates
 
+## Similora 2.0.7 — automatic AI model selection
+
+[Download 2.0.7](https://github.com/devil01529/similora-update/releases/download/v2.0.7/Similora-2.0.7.apk) · [Setup guide](SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md) · [Verification](prepared/v2.0.7/TEST_REPORT.md)
+
+Choose the provider and enter your key; no model-name field is required. The app chooses internally and retries an unavailable model with a fallback. Test saved connection verifies the actual API account.
+
 ## Similora 2.0.6 — Your AI Smart Search
 
 [Download 2.0.6](https://github.com/devil01529/similora-update/releases/download/v2.0.6/Similora-2.0.6.apk) · [Setup and implementation plan](SIMILORA_MAINTENANCE/YOUR_AI_PLAN_AND_GUIDE.md) · [Verification](prepared/v2.0.6/TEST_REPORT.md)

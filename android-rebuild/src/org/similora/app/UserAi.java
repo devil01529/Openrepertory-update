@@ -3,11 +3,15 @@ import org.json.*;
 /** Fixed HTTPS providers only. No custom hosts, tools, file uploads or database writes. */
 public final class UserAi {
  public static JSONObject validate(String raw)throws Exception{
-  JSONObject c=new JSONObject(raw);String p=c.getString("provider"),m=c.getString("model"),k=c.getString("key").trim();
+  JSONObject c=new JSONObject(raw);String p=c.getString("provider"),m=c.optString("model",""),k=c.getString("key").trim();
+  if(m.isEmpty())m=defaultModel(p);
   if(!p.equals("gemini")&&!p.equals("openai"))throw new IllegalArgumentException("Unsupported provider");
   if(!m.matches("[A-Za-z0-9._:-]{1,80}")||k.length()<10||k.length()>512||!k.matches("[A-Za-z0-9_\\-]+"))throw new IllegalArgumentException("Invalid model or key");
   return new JSONObject().put("provider",p).put("model",m).put("key",k);
  }
+ public static String defaultModel(String provider){return provider.equals("openai")?"gpt-4.1-mini":"gemini-2.5-flash";}
+ public static String[] models(JSONObject c)throws Exception{java.util.LinkedHashSet<String> names=new java.util.LinkedHashSet<>();names.add(c.getString("model"));if(c.getString("provider").equals("openai")){names.add("gpt-4.1-mini");names.add("gpt-4o-mini");}else{names.add("gemini-2.5-flash");names.add("gemini-2.5-flash-lite");}return names.toArray(new String[0]);}
+ public static boolean tryNext(int status){return status==404;}
  public static String endpoint(JSONObject c)throws Exception{return c.getString("provider").equals("openai")?"https://api.openai.com/v1/chat/completions":"https://generativelanguage.googleapis.com/v1beta/models/"+c.getString("model")+":generateContent";}
  public static JSONObject body(JSONObject c,String prompt)throws Exception{
   if(prompt.length()>20000)throw new IllegalArgumentException("Text too long");
